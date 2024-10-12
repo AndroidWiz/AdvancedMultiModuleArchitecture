@@ -1,21 +1,22 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    id(BuildPlugins.ANDROID_APPLICATION)
+    id(BuildPlugins.KOTLIN_ANDROID)
     alias(libs.plugins.kotlin.compose)
 }
 
 android {
-    namespace = "com.demo.advancedmultimodulearchitecture"
-    compileSdk = 34
+    namespace = BuildConfig.APP_ID
+    compileSdk = BuildConfig.COMPILE_SDK_VERSION
 
     defaultConfig {
-        applicationId = "com.demo.advancedmultimodulearchitecture"
-        minSdk = 26
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = BuildConfig.APP_ID
+        minSdk = BuildConfig.MIN_SDK_VERSION
+        targetSdk = BuildConfig.TARGET_SDK_VERSION
+        versionCode = ReleaseConfig.VERSION_CODE
+        versionName = ReleaseConfig.VERSION_NAME
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = TestBuildConfig.TEST_INSTRUMENTATION_RUNNER
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -41,19 +42,20 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(Dependencies.ANDROIDX_CORE_KTX)
+    implementation(Dependencies.ANDROIDX_LIFECYCLE_RUNTIME_KTX)
+    implementation(Dependencies.ANDROIDX_ACTIVITY_COMPOSE)
+    implementation(Dependencies.ANDROIDX_UI)
+    implementation(Dependencies.ANDROIDX_UI_GRAPHICS)
+    implementation(Dependencies.ANDROIDX_UI_TOOLING_PREVIEW)
+    implementation(Dependencies.ANDROIDX_MATERIAL3)
+
+    testImplementation(TestDependencies.JUNIT)
+
+    androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
+    androidTestImplementation(TestDependencies.ANDROIDX_ESPRESSO_CORE)
+    androidTestImplementation(TestDependencies.ANDROIDX_COMPOSE_UI_TEST_JUNIT4)
+
+    debugImplementation(Dependencies.ANDROIDX_UI_TOOLING)
+    debugImplementation(TestDependencies.ANDROIDX_COMPOSE_UI_TEST_MANIFEST)
 }
