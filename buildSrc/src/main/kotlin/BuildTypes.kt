@@ -1,5 +1,5 @@
 object BuildTypes {
     const val DEBUG = "debug"
     const val RELEASE = "release"
-    const val RELEASE_QA = "releaseQA"
+    const val QA = "QA"
 }
