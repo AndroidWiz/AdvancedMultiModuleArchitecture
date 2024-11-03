@@ -1,7 +1,6 @@
 plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
     id(BuildPlugins.KOTLIN_ANDROID)
-    alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -20,12 +19,30 @@ android {
     }
 
     buildTypes {
-        release {
-            isMinifyEnabled = false
+        getByName(BuildTypes.DEBUG) {
+            isMinifyEnabled = Build.Debug.isMinifyEnabled
+            enableUnitTestCoverage = Build.Debug.isEnabledUnitTestCoverage
+            isDebuggable = Build.Debug.isDebuggable
+            applicationIdSuffix = Build.Debug.applicationIdSuffix
+            versionNameSuffix = Build.Debug.versionNameSuffix
+        }
+
+        getByName(BuildTypes.RELEASE) {
+            isMinifyEnabled = Build.Release.isMinifyEnabled
+            enableUnitTestCoverage = Build.Release.isEnabledUnitTestCoverage
+            isDebuggable = Build.Release.isDebuggable
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+
+        create(BuildTypes.QA) {
+            isMinifyEnabled = Build.QA.isMinifyEnabled
+            enableUnitTestCoverage = Build.QA.isEnabledUnitTestCoverage
+            isDebuggable = Build.QA.isDebuggable
+            applicationIdSuffix = Build.QA.applicationIdSuffix
+            versionNameSuffix = Build.QA.versionNameSuffix
         }
     }
     compileOptions {
@@ -38,23 +55,32 @@ android {
     buildFeatures {
         compose = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.1"
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
 }
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(Dependencies.ANDROIDX_CORE_KTX)
+    implementation(Dependencies.ANDROIDX_LIFECYCLE_RUNTIME_KTX)
+    implementation(Dependencies.ANDROIDX_ACTIVITY_COMPOSE)
+    implementation(Dependencies.ANDROIDX_UI)
+    implementation(Dependencies.ANDROIDX_UI_GRAPHICS)
+    implementation(Dependencies.ANDROIDX_UI_TOOLING_PREVIEW)
+    implementation(Dependencies.ANDROIDX_MATERIAL3)
+
+    testImplementation(TestDependencies.JUNIT)
+
+    androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
+    androidTestImplementation(TestDependencies.ANDROIDX_ESPRESSO_CORE)
+    androidTestImplementation(TestDependencies.ANDROIDX_COMPOSE_UI_TEST_JUNIT4)
+
+    debugImplementation(Dependencies.ANDROIDX_UI_TOOLING)
+    debugImplementation(TestDependencies.ANDROIDX_COMPOSE_UI_TEST_MANIFEST)
 }
