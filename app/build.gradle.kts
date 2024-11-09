@@ -45,11 +45,17 @@ android {
             versionNameSuffix = Build.QA.versionNameSuffix
         }
     }
+
+    // flavor types
     flavorDimensions.add(BuildDimensions.APP)
     flavorDimensions.add(BuildDimensions.STORE)
     productFlavors {
-
+        BuildFlavor.Google.create(this)
+        BuildFlavor.Huawei.create(this)
+        BuildFlavor.Driver.create(this)
+        BuildFlavor.User.create(this)
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
