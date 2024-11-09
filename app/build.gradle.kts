@@ -45,6 +45,11 @@ android {
             versionNameSuffix = Build.QA.versionNameSuffix
         }
     }
+    flavorDimensions.add(BuildDimensions.APP)
+    flavorDimensions.add(BuildDimensions.STORE)
+    productFlavors {
+
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
