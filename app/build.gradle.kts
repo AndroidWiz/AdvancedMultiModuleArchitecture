@@ -1,3 +1,5 @@
+import com.android.build.gradle.ProguardFiles
+
 plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
     id(BuildPlugins.KOTLIN_ANDROID)
@@ -25,19 +27,11 @@ android {
     }
 
     buildTypes {
-        getByName(BuildTypes.DEBUG) {
-            isMinifyEnabled = Build.Debug.isMinifyEnabled
-            enableUnitTestCoverage = Build.Debug.isEnabledUnitTestCoverage
-            isDebuggable = Build.Debug.isDebuggable
-            applicationIdSuffix = Build.Debug.applicationIdSuffix
-            versionNameSuffix = Build.Debug.versionNameSuffix
+        BuildCreator.Debug(project).create(this).apply {
             signingConfig = signingConfigs.getByName(SigningTypes.DEBUG)
         }
 
-        getByName(BuildTypes.RELEASE) {
-            isMinifyEnabled = Build.Release.isMinifyEnabled
-            enableUnitTestCoverage = Build.Release.isEnabledUnitTestCoverage
-            isDebuggable = Build.Release.isDebuggable
+        BuildCreator.Release(project).create(this).apply {
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -45,12 +39,7 @@ android {
             signingConfig = signingConfigs.getByName(SigningTypes.RELEASE)
         }
 
-        create(BuildTypes.QA) {
-            isMinifyEnabled = Build.QA.isMinifyEnabled
-            enableUnitTestCoverage = Build.QA.isEnabledUnitTestCoverage
-            isDebuggable = Build.QA.isDebuggable
-            applicationIdSuffix = Build.QA.applicationIdSuffix
-            versionNameSuffix = Build.QA.versionNameSuffix
+        BuildCreator.Qa(project).create(this).apply {
             signingConfig = signingConfigs.getByName(SigningTypes.QA)
         }
     }
@@ -74,6 +63,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
