@@ -18,6 +18,12 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
+    signingConfigs {
+        BuildSigning.Debug.create(this)
+        BuildSigning.Release.create(this)
+        BuildSigning.Qa.create(this)
+    }
+
     buildTypes {
         getByName(BuildTypes.DEBUG) {
             isMinifyEnabled = Build.Debug.isMinifyEnabled
