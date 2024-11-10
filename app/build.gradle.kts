@@ -19,9 +19,9 @@ android {
     }
 
     signingConfigs {
-        BuildSigning.Debug.create(this)
-        BuildSigning.Release.create(this)
-        BuildSigning.Qa.create(this)
+        BuildSigning.Debug(project).create(this)
+        BuildSigning.Release(project).create(this)
+        BuildSigning.Qa(project).create(this)
     }
 
     buildTypes {
@@ -31,6 +31,7 @@ android {
             isDebuggable = Build.Debug.isDebuggable
             applicationIdSuffix = Build.Debug.applicationIdSuffix
             versionNameSuffix = Build.Debug.versionNameSuffix
+            signingConfig = signingConfigs.getByName(SigningTypes.DEBUG)
         }
 
         getByName(BuildTypes.RELEASE) {
@@ -41,6 +42,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName(SigningTypes.RELEASE)
         }
 
         create(BuildTypes.QA) {
@@ -49,6 +51,7 @@ android {
             isDebuggable = Build.QA.isDebuggable
             applicationIdSuffix = Build.QA.applicationIdSuffix
             versionNameSuffix = Build.QA.versionNameSuffix
+            signingConfig = signingConfigs.getByName(SigningTypes.QA)
         }
     }
 
