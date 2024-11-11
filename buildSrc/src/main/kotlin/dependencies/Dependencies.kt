@@ -1,3 +1,5 @@
+package dependencies
+
 object Dependencies {
 
     const val ANDROIDX_CORE_KTX = "androidx.core:core-ktx:${DependencyVersions.CORE_KTX}"

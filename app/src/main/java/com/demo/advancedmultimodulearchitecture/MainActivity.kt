@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -34,10 +35,28 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+    Column {
+        Text(
+            text = "Hello $name!",
+            modifier = modifier
+        )
+        Text(
+            text = "Base url: ${BuildConfig.BASE_URL}",
+            modifier = modifier
+        )
+        Text(
+            text = "DB Version: ${BuildConfig.DB_VERSION}",
+            modifier = modifier
+        )
+        Text(
+            text = "Can clear cache: ${BuildConfig.CAN_CLEAR_CACHE}",
+            modifier = modifier
+        )
+        Text(
+            text = "Map Key: ${BuildConfig.MAP_KEY}",
+            modifier = modifier
+        )
+    }
 }
 
 @Preview(showBackground = true)

@@ -1,6 +1,17 @@
+import build.BuildConfig
+import build.BuildCreator
+import build.BuildDimensions
+import dependencies.Dependencies
+import flavors.BuildFlavor
+import release.ReleaseConfig
+import signing.BuildSigning
+import signing.SigningTypes
+import test.TestBuildConfig
+import test.TestDependencies
+
 plugins {
-    id(BuildPlugins.ANDROID_APPLICATION)
-    id(BuildPlugins.KOTLIN_ANDROID)
+    id(plugs.BuildPlugins.ANDROID_APPLICATION)
+    id(plugs.BuildPlugins.KOTLIN_ANDROID)
 }
 
 android {
@@ -18,31 +29,27 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
+    signingConfigs {
+        BuildSigning.Debug(project).create(this)
+        BuildSigning.Release(project).create(this)
+        BuildSigning.Qa(project).create(this)
+    }
+
     buildTypes {
-        getByName(BuildTypes.DEBUG) {
-            isMinifyEnabled = Build.Debug.isMinifyEnabled
-            enableUnitTestCoverage = Build.Debug.isEnabledUnitTestCoverage
-            isDebuggable = Build.Debug.isDebuggable
-            applicationIdSuffix = Build.Debug.applicationIdSuffix
-            versionNameSuffix = Build.Debug.versionNameSuffix
+        BuildCreator.Debug(project).create(this).apply {
+            signingConfig = signingConfigs.getByName(SigningTypes.DEBUG)
         }
 
-        getByName(BuildTypes.RELEASE) {
-            isMinifyEnabled = Build.Release.isMinifyEnabled
-            enableUnitTestCoverage = Build.Release.isEnabledUnitTestCoverage
-            isDebuggable = Build.Release.isDebuggable
+        BuildCreator.Release(project).create(this).apply {
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName(SigningTypes.RELEASE)
         }
 
-        create(BuildTypes.QA) {
-            isMinifyEnabled = Build.QA.isMinifyEnabled
-            enableUnitTestCoverage = Build.QA.isEnabledUnitTestCoverage
-            isDebuggable = Build.QA.isDebuggable
-            applicationIdSuffix = Build.QA.applicationIdSuffix
-            versionNameSuffix = Build.QA.versionNameSuffix
+        BuildCreator.Qa(project).create(this).apply {
+            signingConfig = signingConfigs.getByName(SigningTypes.QA)
         }
     }
 
@@ -65,6 +72,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
