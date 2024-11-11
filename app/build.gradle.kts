@@ -1,8 +1,17 @@
-import com.android.build.gradle.ProguardFiles
+import build.BuildConfig
+import build.BuildCreator
+import build.BuildDimensions
+import dependencies.Dependencies
+import flavors.BuildFlavor
+import release.ReleaseConfig
+import signing.BuildSigning
+import signing.SigningTypes
+import test.TestBuildConfig
+import test.TestDependencies
 
 plugins {
-    id(BuildPlugins.ANDROID_APPLICATION)
-    id(BuildPlugins.KOTLIN_ANDROID)
+    id(plugs.BuildPlugins.ANDROID_APPLICATION)
+    id(plugs.BuildPlugins.KOTLIN_ANDROID)
 }
 
 android {

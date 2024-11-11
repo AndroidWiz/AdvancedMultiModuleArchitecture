@@ -1,3 +1,5 @@
+package dependencies
+
 object DependencyVersions {
 
     const val CORE_KTX = "1.10.1"
