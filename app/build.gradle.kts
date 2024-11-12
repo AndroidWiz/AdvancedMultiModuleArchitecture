@@ -1,17 +1,26 @@
 import build.BuildConfig
 import build.BuildCreator
 import build.BuildDimensions
-import dependencies.Dependencies
+import dependencies.androidTestImpl
+import dependencies.androidX
+import dependencies.debugImpl
+import dependencies.hilt
+import dependencies.loginModule
+import dependencies.okHttp
+import dependencies.retrofit
+import dependencies.room
+import dependencies.testImpl
 import flavors.BuildFlavor
 import release.ReleaseConfig
 import signing.BuildSigning
 import signing.SigningTypes
 import test.TestBuildConfig
-import test.TestDependencies
 
 plugins {
     id(plugs.BuildPlugins.ANDROID_APPLICATION)
     id(plugs.BuildPlugins.KOTLIN_ANDROID)
+    id(plugs.BuildPlugins.ANDROID)
+    kotlin(plugs.BuildPlugins.KAPT)
 }
 
 android {
@@ -85,21 +94,14 @@ android {
 }
 
 dependencies {
+    loginModule()
+    androidX()
+    hilt()
+    room()
+    okHttp()
+    retrofit()
 
-    implementation(Dependencies.ANDROIDX_CORE_KTX)
-    implementation(Dependencies.ANDROIDX_LIFECYCLE_RUNTIME_KTX)
-    implementation(Dependencies.ANDROIDX_ACTIVITY_COMPOSE)
-    implementation(Dependencies.ANDROIDX_UI)
-    implementation(Dependencies.ANDROIDX_UI_GRAPHICS)
-    implementation(Dependencies.ANDROIDX_UI_TOOLING_PREVIEW)
-    implementation(Dependencies.ANDROIDX_MATERIAL3)
-
-    testImplementation(TestDependencies.JUNIT)
-
-    androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
-    androidTestImplementation(TestDependencies.ANDROIDX_ESPRESSO_CORE)
-    androidTestImplementation(TestDependencies.ANDROIDX_COMPOSE_UI_TEST_JUNIT4)
-
-    debugImplementation(Dependencies.ANDROIDX_UI_TOOLING)
-    debugImplementation(TestDependencies.ANDROIDX_COMPOSE_UI_TEST_MANIFEST)
+    testImpl()
+    androidTestImpl()
+    debugImpl()
 }
