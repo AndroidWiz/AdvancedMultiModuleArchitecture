@@ -2,6 +2,7 @@ import dependencies.androidTestImpl
 import dependencies.androidX
 import dependencies.debugImpl
 import dependencies.hilt
+import dependencies.room
 import dependencies.testImpl
 import test.TestBuildConfig
 
@@ -44,7 +45,7 @@ dependencies {
     androidX()
 
     hilt()
-//    room()
+    room()
 
     testImpl()
     androidTestImpl()
