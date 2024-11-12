@@ -26,7 +26,7 @@ object Dependencies {
     const val RETROFIT_CONVERTER_GSON =
         "com.squareup.retrofit2:converter-gson:${DependencyVersions.RETROFIT}"
     const val RETROFIT_KOTLIN_COROUTINES_ADAPTER =
-        "com.jakewharton.retrofit2:retrofit-kotlin-coroutines-adapter:${DependencyVersions.RETROFIT_COROUTINES_ADAPTER_VERSION}"
+        "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${DependencyVersions.RETROFIT_COROUTINES_ADAPTER_VERSION}"
 
 
     const val OKHTTP = "com.squareup.okhttp3:okhttp:${DependencyVersions.OKHTTP}"

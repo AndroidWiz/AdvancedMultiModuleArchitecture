@@ -2,6 +2,7 @@ package dependencies
 
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.project
+import test.TestDependencies
 
 fun DependencyHandler.androidX() {
     implementation(Dependencies.ANDROIDX_CORE_KTX)
@@ -11,6 +12,18 @@ fun DependencyHandler.androidX() {
     implementation(Dependencies.ANDROIDX_UI_GRAPHICS)
     implementation(Dependencies.ANDROIDX_UI_TOOLING_PREVIEW)
     implementation(Dependencies.ANDROIDX_MATERIAL3)
+}
+fun DependencyHandler.testImpl() {
+    testImplementation(TestDependencies.JUNIT)
+}
+fun DependencyHandler.androidTestImpl() {
+    androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
+    androidTestImplementation(TestDependencies.ANDROIDX_ESPRESSO_CORE)
+    androidTestImplementation(TestDependencies.ANDROIDX_COMPOSE_UI_TEST_JUNIT4)
+}
+fun DependencyHandler.debugImpl() {
+    debugImplementation(Dependencies.ANDROIDX_UI_TOOLING)
+    debugImplementation(TestDependencies.ANDROIDX_COMPOSE_UI_TEST_MANIFEST)
 }
 
 fun DependencyHandler.room() {
@@ -36,9 +49,9 @@ fun DependencyHandler.hilt() {
 }
 
 fun DependencyHandler.loginModule() {
-    moduleImplementation(project("features:login"))
+    moduleImplementation(project(":features:login"))
 }
 
 fun DependencyHandler.homeModule() {
-    moduleImplementation(project("features:home"))
+    moduleImplementation(project(":features:home"))
 }

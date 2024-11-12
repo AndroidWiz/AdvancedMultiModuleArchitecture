@@ -20,7 +20,8 @@ fun DependencyHandler.debugImplementation(dependency: String) {
 }
 
 fun DependencyHandler.kapt(dependency: String) {
-    add("kapt", dependency)
+//    add("kapt", dependency) // kapt replaced with annotationProcessor due to errors
+    add("annotationProcessor", dependency)
 }
 
 fun DependencyHandler.moduleImplementation(dependency: Dependency) {
