@@ -4,6 +4,7 @@ import extensions.buildConfigBooleanField
 import extensions.buildConfigIntField
 import extensions.buildConfigStringField
 import com.android.build.api.dsl.ApplicationBuildType
+import com.android.build.api.dsl.LibraryBuildType
 import extensions.getLocalProperty
 import org.gradle.api.NamedDomainObjectContainer
 import org.gradle.api.Project
@@ -11,6 +12,8 @@ import org.gradle.api.Project
 sealed class BuildCreator(val name: String) {
 
     abstract fun create(namedDomainObjectContainer: NamedDomainObjectContainer<ApplicationBuildType>): ApplicationBuildType
+
+    abstract fun createLibrary(namedDomainObjectContainer: NamedDomainObjectContainer<LibraryBuildType>): LibraryBuildType
 
     class Debug(private val project: Project) : BuildCreator(BuildTypes.DEBUG) {
         override fun create(namedDomainObjectContainer: NamedDomainObjectContainer<ApplicationBuildType>): ApplicationBuildType {
@@ -25,6 +28,13 @@ sealed class BuildCreator(val name: String) {
                 buildConfigIntField(name = BuildVariables.DB_VERSION, value = project.getLocalProperty("dev.db_version"))
                 buildConfigBooleanField(name = BuildVariables.CAN_CLEAR_CACHE, value = project.getLocalProperty("dev.clear_cache"))
                 buildConfigStringField(name = BuildVariables.MAP_KEY, value = project.getLocalProperty("dev.map_key"))
+            }
+        }
+
+        override fun createLibrary(namedDomainObjectContainer: NamedDomainObjectContainer<LibraryBuildType>): LibraryBuildType {
+            return namedDomainObjectContainer.getByName(name) {
+                isMinifyEnabled = Build.Debug.isMinifyEnabled
+                enableUnitTestCoverage = Build.Debug.isEnabledUnitTestCoverage
             }
         }
     }
@@ -42,6 +52,13 @@ sealed class BuildCreator(val name: String) {
                 buildConfigStringField(name = BuildVariables.MAP_KEY, value = project.getLocalProperty("release.map_key"))
             }
         }
+
+        override fun createLibrary(namedDomainObjectContainer: NamedDomainObjectContainer<LibraryBuildType>): LibraryBuildType {
+            return namedDomainObjectContainer.getByName(name) {
+                isMinifyEnabled = Build.Release.isMinifyEnabled
+                enableUnitTestCoverage = Build.Release.isEnabledUnitTestCoverage
+            }
+        }
     }
 
     class Qa(private val project: Project) : BuildCreator(BuildTypes.QA) {
@@ -57,6 +74,14 @@ sealed class BuildCreator(val name: String) {
                 buildConfigIntField(name = BuildVariables.DB_VERSION, value = project.getLocalProperty("dev.db_version"))
                 buildConfigBooleanField(name = BuildVariables.CAN_CLEAR_CACHE, value = project.getLocalProperty("dev.clear_cache"))
                 buildConfigStringField(name = BuildVariables.MAP_KEY, value = project.getLocalProperty("dev.map_key"))
+            }
+        }
+
+        override fun createLibrary(namedDomainObjectContainer: NamedDomainObjectContainer<LibraryBuildType>): LibraryBuildType {
+            return namedDomainObjectContainer.create(name) {
+                isMinifyEnabled = Build.QA.isMinifyEnabled
+                enableUnitTestCoverage = Build.QA.isEnabledUnitTestCoverage
+
             }
         }
     }

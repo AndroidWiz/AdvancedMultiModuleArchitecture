@@ -1,6 +1,7 @@
 import build.BuildConfig
 import build.BuildCreator
 import build.BuildDimensions
+import dependencies.DependencyVersions
 import dependencies.androidTestImpl
 import dependencies.androidX
 import dependencies.debugImpl
@@ -84,7 +85,7 @@ android {
         buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = DependencyVersions.KOTLIN_COMPILER
     }
     packaging {
         resources {
