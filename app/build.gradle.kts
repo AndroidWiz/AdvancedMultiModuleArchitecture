@@ -22,6 +22,7 @@ plugins {
     id(plugs.BuildPlugins.KOTLIN_ANDROID)
     id(plugs.BuildPlugins.ANDROID)
     id(plugs.BuildPlugins.KAPT)
+    id(plugs.BuildPlugins.KTLINT)
 }
 
 android {
@@ -53,7 +54,7 @@ android {
         BuildCreator.Release(project).create(this).apply {
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
             signingConfig = signingConfigs.getByName(SigningTypes.RELEASE)
         }

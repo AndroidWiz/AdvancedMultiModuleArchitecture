@@ -9,7 +9,6 @@ import flavors.BuildFlavor
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.kotlin
 import org.gradle.kotlin.dsl.withType
 import signing.BuildSigning
 import signing.SigningTypes
@@ -25,6 +24,7 @@ class SharedLibraryGradlePlugin : Plugin<Project> {
     private fun Project.addPluginConfigurations() {
         plugins.apply(BuildPlugins.KOTLIN_ANDROID)
         plugins.apply(BuildPlugins.KAPT)
+        plugins.apply(BuildPlugins.KTLINT)
     }
 
     private fun Project.addAndroidConfigurations() {

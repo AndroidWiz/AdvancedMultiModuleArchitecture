@@ -14,7 +14,6 @@ apply<SharedLibraryGradlePlugin>()
 
 android {
     namespace = "com.demo.login"
-
 }
 
 dependencies {
