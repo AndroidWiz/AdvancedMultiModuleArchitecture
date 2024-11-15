@@ -17,55 +17,55 @@ import com.demo.info.MapProvider
 import com.demo.provider.DataProvider
 
 class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            AdvancedMultiModuleArchitectureTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "${DataProvider.USERNAME} ${MapProvider.MAP_ID}",
-                        modifier = Modifier.padding(innerPadding),
-                    )
-                }
-            }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    enableEdgeToEdge()
+    setContent {
+      AdvancedMultiModuleArchitectureTheme {
+        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+          Greeting(
+            name = "${DataProvider.USERNAME} ${MapProvider.MAP_ID}",
+            modifier = Modifier.padding(innerPadding),
+          )
         }
-
-        val counter = 100
-        println(counter.toString())
+      }
     }
+
+    val counter = 100
+    println(counter.toString())
+  }
 }
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Column {
-        Text(
-            text = "Hello $name!",
-            modifier = modifier,
-        )
-        Text(
-            text = "Base url: ${BuildConfig.BASE_URL}",
-            modifier = modifier,
-        )
-        Text(
-            text = "DB Version: ${BuildConfig.DB_VERSION}",
-            modifier = modifier,
-        )
-        Text(
-            text = "Can clear cache: ${BuildConfig.CAN_CLEAR_CACHE}",
-            modifier = modifier,
-        )
-        Text(
-            text = "Map Key: ${BuildConfig.MAP_KEY}",
-            modifier = modifier,
-        )
-    }
+  Column {
+    Text(
+      text = "Hello $name!",
+      modifier = modifier,
+    )
+    Text(
+      text = "Base url: ${BuildConfig.BASE_URL}",
+      modifier = modifier,
+    )
+    Text(
+      text = "DB Version: ${BuildConfig.DB_VERSION}",
+      modifier = modifier,
+    )
+    Text(
+      text = "Can clear cache: ${BuildConfig.CAN_CLEAR_CACHE}",
+      modifier = modifier,
+    )
+    Text(
+      text = "Map Key: ${BuildConfig.MAP_KEY}",
+      modifier = modifier,
+    )
+  }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    AdvancedMultiModuleArchitectureTheme {
-        Greeting("Android")
-    }
+  AdvancedMultiModuleArchitectureTheme {
+    Greeting("Android")
+  }
 }

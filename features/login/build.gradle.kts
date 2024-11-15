@@ -7,22 +7,22 @@ import dependencies.testImpl
 import plugs.SharedLibraryGradlePlugin
 
 plugins {
-    id(plugs.BuildPlugins.ANDROID_LIBRARY)
+  id(plugs.BuildPlugins.ANDROID_LIBRARY)
 }
 
 apply<SharedLibraryGradlePlugin>()
 
 android {
-    namespace = "com.demo.login"
+  namespace = "com.demo.login"
 }
 
 dependencies {
-    androidX()
+  androidX()
 
-    hilt()
-    room()
+  hilt()
+  room()
 
-    testImpl()
-    androidTestImpl()
-    debugImpl()
+  testImpl()
+  androidTestImpl()
+  debugImpl()
 }

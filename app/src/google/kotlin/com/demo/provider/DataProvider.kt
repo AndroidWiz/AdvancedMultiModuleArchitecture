@@ -1,5 +1,5 @@
 package com.demo.provider
 
 object DataProvider {
-    const val USERNAME: String = "Google"
+  const val USERNAME: String = "Google"
 }
