@@ -20,6 +20,8 @@ configure<com.diffplug.gradle.spotless.SpotlessExtension> {
                     "selfClosingTags" to arrayOf("br", "img")
                 )
             )
+//            .npmInstallCache() // will use the default cache directory (the build-directory of the respective module)
+//            .npmInstallCache("${rootProject.rootDir}/.gradle/spotless-npm-cache") // will use the specified directory (creating it if not existing)
         indentWithSpaces(4)
         trimTrailingWhitespace()
         endWithNewline()
