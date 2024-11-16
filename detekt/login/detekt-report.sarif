@@ -5,102 +5,10 @@
     {
       "originalUriBaseIds": {
         "%SRCROOT%": {
-          "uri": "file:///Users/sk/Desktop/learnings/multi-module-architecture/AdvancedMultiModuleArchitecture/app/"
+          "uri": "file:///Users/sk/Desktop/learnings/multi-module-architecture/AdvancedMultiModuleArchitecture/features/login/"
         }
       },
       "results": [
-        {
-          "level": "warning",
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "src/main/java/com/demo/advancedmultimodulearchitecture/ui/theme/Theme.kt",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "endColumn": 41,
-                  "endLine": 36,
-                  "startColumn": 5,
-                  "startLine": 36
-                }
-              }
-            }
-          ],
-          "message": {
-            "text": "Function names should match the pattern: ([a-z][a-zA-Z0-9]*)|(`.*`)"
-          },
-          "ruleId": "detekt.naming.FunctionNaming"
-        },
-        {
-          "level": "warning",
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "src/main/java/com/demo/advancedmultimodulearchitecture/ui/theme/Theme.kt",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "endColumn": 41,
-                  "endLine": 36,
-                  "startColumn": 5,
-                  "startLine": 36
-                }
-              }
-            }
-          ],
-          "message": {
-            "text": "Function names should be at most 30 characters long."
-          },
-          "ruleId": "detekt.naming.FunctionMaxLength"
-        },
-        {
-          "level": "warning",
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "src/main/java/com/demo/advancedmultimodulearchitecture/MainActivity.kt",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "endColumn": 13,
-                  "endLine": 40,
-                  "startColumn": 5,
-                  "startLine": 40
-                }
-              }
-            }
-          ],
-          "message": {
-            "text": "Function names should match the pattern: ([a-z][a-zA-Z0-9]*)|(`.*`)"
-          },
-          "ruleId": "detekt.naming.FunctionNaming"
-        },
-        {
-          "level": "warning",
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "src/main/java/com/demo/advancedmultimodulearchitecture/MainActivity.kt",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "endColumn": 20,
-                  "endLine": 67,
-                  "startColumn": 5,
-                  "startLine": 67
-                }
-              }
-            }
-          ],
-          "message": {
-            "text": "Function names should match the pattern: ([a-z][a-zA-Z0-9]*)|(`.*`)"
-          },
-          "ruleId": "detekt.naming.FunctionNaming"
-        }
       ],
       "tool": {
         "driver": {

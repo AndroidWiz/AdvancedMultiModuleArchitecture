@@ -62,6 +62,9 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
   }
 }
 
+fun MainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMain() {
+}
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
