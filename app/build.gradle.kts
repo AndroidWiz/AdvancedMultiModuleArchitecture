@@ -26,6 +26,7 @@ plugins {
   id(plugs.BuildPlugins.SPOTLESS)
   id(plugs.BuildPlugins.DETEKT)
   id(plugs.BuildPlugins.UPDATE_DEPENDENCY_VERSIONS)
+  id(plugs.BuildPlugins.DOKKA)
 }
 
 android {

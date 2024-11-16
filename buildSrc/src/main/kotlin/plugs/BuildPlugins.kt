@@ -14,4 +14,6 @@ object BuildPlugins {
     const val DETEKT = "detekt-settings"
 
     const val UPDATE_DEPENDENCY_VERSIONS = "update-dependency-versions"
+
+    const val DOKKA = "dokka-settings"
 }
