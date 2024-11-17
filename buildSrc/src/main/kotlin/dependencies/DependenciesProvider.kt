@@ -13,14 +13,17 @@ fun DependencyHandler.androidX() {
     implementation(Dependencies.ANDROIDX_UI_TOOLING_PREVIEW)
     implementation(Dependencies.ANDROIDX_MATERIAL3)
 }
+
 fun DependencyHandler.testImpl() {
     testImplementation(TestDependencies.JUNIT)
 }
+
 fun DependencyHandler.androidTestImpl() {
     androidTestImplementation(TestDependencies.ANDROIDX_JUNIT)
     androidTestImplementation(TestDependencies.ANDROIDX_ESPRESSO_CORE)
     androidTestImplementation(TestDependencies.ANDROIDX_COMPOSE_UI_TEST_JUNIT4)
 }
+
 fun DependencyHandler.debugImpl() {
     debugImplementation(Dependencies.ANDROIDX_UI_TOOLING)
     debugImplementation(TestDependencies.ANDROIDX_COMPOSE_UI_TEST_MANIFEST)
@@ -54,4 +57,16 @@ fun DependencyHandler.loginModule() {
 
 fun DependencyHandler.homeModule() {
     moduleImplementation(project(":features:home"))
+}
+
+fun DependencyHandler.dataModule() {
+    moduleImplementation(project(":core:data"))
+}
+
+fun DependencyHandler.domainModule() {
+    moduleImplementation(project(":core:domain"))
+}
+
+fun DependencyHandler.presentationModule() {
+    moduleImplementation(project(":core:presentation"))
 }
