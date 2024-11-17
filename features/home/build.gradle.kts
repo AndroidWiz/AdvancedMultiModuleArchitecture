@@ -1,8 +1,8 @@
-import dependencies.androidTestImpl
-import dependencies.androidX
-import dependencies.debugImpl
-import dependencies.hilt
-import dependencies.testImpl
+import dependencis.androidTestImpl
+import dependencis.androidX
+import dependencis.debugImpl
+import dependencis.hilt
+import dependencis.testImpl
 import test.TestBuildConfig
 
 plugins {

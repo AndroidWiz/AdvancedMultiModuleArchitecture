@@ -1,9 +1,9 @@
-import dependencies.androidTestImpl
-import dependencies.androidX
-import dependencies.debugImpl
-import dependencies.hilt
-import dependencies.room
-import dependencies.testImpl
+import dependencis.androidTestImpl
+import dependencis.androidX
+import dependencis.debugImpl
+import dependencis.hilt
+import dependencis.room
+import dependencis.testImpl
 import plugs.SharedLibraryGradlePlugin
 
 plugins {
