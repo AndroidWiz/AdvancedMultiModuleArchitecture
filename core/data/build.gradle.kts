@@ -1,5 +1,8 @@
 import dependencis.androidTestImpl
 import dependencis.debugImpl
+import dependencis.hilt
+import dependencis.okHttp
+import dependencis.retrofit
 import dependencis.testImpl
 import plugs.SharedLibraryGradlePlugin
 
@@ -14,6 +17,10 @@ android {
 }
 
 dependencies {
+  retrofit()
+  okHttp()
+  hilt()
+
   testImpl()
   androidTestImpl()
   debugImpl()

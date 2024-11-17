@@ -4,10 +4,13 @@ import build.BuildDimensions
 import dependencis.DependencyVersions
 import dependencis.androidTestImpl
 import dependencis.androidX
+import dependencis.dataModule
 import dependencis.debugImpl
+import dependencis.domainModule
 import dependencis.hilt
 import dependencis.loginModule
 import dependencis.okHttp
+import dependencis.presentationModule
 import dependencis.retrofit
 import dependencis.room
 import dependencis.testImpl
@@ -102,6 +105,9 @@ android {
 
 dependencies {
   loginModule()
+  dataModule()
+  domainModule()
+  presentationModule()
   androidX()
   hilt()
   room()
