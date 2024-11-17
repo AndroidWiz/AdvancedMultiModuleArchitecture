@@ -1,0 +1,35 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.demo.advancedmultimodulearchitecture.ui.theme////PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture.ui.theme/index.html
+$dokka.location:com.demo.advancedmultimodulearchitecture.ui.theme//AdvancedMultiModuleArchitectureTheme/#kotlin.Boolean#kotlin.Boolean#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture.ui.theme/[-j-v-m]-advanced-multi-module-architecture-theme.html
+$dokka.location:com.demo.advancedmultimodulearchitecture.ui.theme//Pink40/#/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture.ui.theme/-pink40.html
+$dokka.location:com.demo.advancedmultimodulearchitecture.ui.theme//Pink80/#/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture.ui.theme/-pink80.html
+$dokka.location:com.demo.advancedmultimodulearchitecture.ui.theme//Purple40/#/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture.ui.theme/-purple40.html
+$dokka.location:com.demo.advancedmultimodulearchitecture.ui.theme//Purple80/#/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture.ui.theme/-purple80.html
+$dokka.location:com.demo.advancedmultimodulearchitecture.ui.theme//PurpleGrey40/#/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture.ui.theme/-purple-grey40.html
+$dokka.location:com.demo.advancedmultimodulearchitecture.ui.theme//PurpleGrey80/#/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture.ui.theme/-purple-grey80.html
+$dokka.location:com.demo.advancedmultimodulearchitecture.ui.theme//Typography/#/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture.ui.theme/-typography.html
+$dokka.location:com.demo.advancedmultimodulearchitecture////PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture/index.html
+$dokka.location:com.demo.advancedmultimodulearchitecture//Greeting/#kotlin.String#[Error type: Unresolved type for Modifier]/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture/[-j-v-m]-greeting.html
+$dokka.location:com.demo.advancedmultimodulearchitecture//Greeting/#kotlin.String#androidx.compose.ui.Modifier/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture/[-j-v-m]-greeting.html
+$dokka.location:com.demo.advancedmultimodulearchitecture//GreetingPreview/#/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture/[-j-v-m]-greeting-preview.html
+$dokka.location:com.demo.advancedmultimodulearchitecture//MainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMain/#/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture/[-j-v-m]-main-main-main-main-main-main-main-main-main-main-main-main-main-main-main-main-main-main-main-main-main-main-main-main.html
+$dokka.location:com.demo.advancedmultimodulearchitecture/ExampleInstrumentedTest///PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture/[-j-v-m]-example-instrumented-test/index.html
+$dokka.location:com.demo.advancedmultimodulearchitecture/ExampleInstrumentedTest/ExampleInstrumentedTest/#/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture/[-j-v-m]-example-instrumented-test/-example-instrumented-test.html
+$dokka.location:com.demo.advancedmultimodulearchitecture/ExampleInstrumentedTest/useAppContext/#/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture/[-j-v-m]-example-instrumented-test/use-app-context.html
+$dokka.location:com.demo.advancedmultimodulearchitecture/ExampleUnitTest///PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture/[-j-v-m]-example-unit-test/index.html
+$dokka.location:com.demo.advancedmultimodulearchitecture/ExampleUnitTest/ExampleUnitTest/#/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture/[-j-v-m]-example-unit-test/-example-unit-test.html
+$dokka.location:com.demo.advancedmultimodulearchitecture/ExampleUnitTest/addition_isCorrect/#/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture/[-j-v-m]-example-unit-test/addition_is-correct.html
+$dokka.location:com.demo.advancedmultimodulearchitecture/MainActivity///PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture/[-j-v-m]-main-activity/index.html
+$dokka.location:com.demo.advancedmultimodulearchitecture/MainActivity/MainActivity/#/PointingToDeclaration/-modularization-app/com.demo.advancedmultimodulearchitecture/[-j-v-m]-main-activity/-main-activity.html
+$dokka.location:com.demo.info////PointingToDeclaration/-modularization-app/com.demo.info/index.html
+$dokka.location:com.demo.info/MapProvider///PointingToDeclaration/-modularization-app/com.demo.info/[-j-v-m]-map-provider/index.html
+$dokka.location:com.demo.info/MapProvider/MAP_ID/#/PointingToDeclaration/-modularization-app/com.demo.info/[-j-v-m]-map-provider/-m-a-p_-i-d.html
+$dokka.location:com.demo.provider////PointingToDeclaration/-modularization-app/com.demo.provider/index.html
+$dokka.location:com.demo.provider/DataProvider///PointingToDeclaration/-modularization-app/com.demo.provider/[-j-v-m]-data-provider/index.html
+$dokka.location:com.demo.provider/DataProvider/USERNAME/#/PointingToDeclaration/-modularization-app/com.demo.provider/[-j-v-m]-data-provider/-u-s-e-r-n-a-m-e.html
+com.demo.advancedmultimodulearchitecture
+com.demo.advancedmultimodulearchitecture.ui.theme
+com.demo.info
+com.demo.provider
+
