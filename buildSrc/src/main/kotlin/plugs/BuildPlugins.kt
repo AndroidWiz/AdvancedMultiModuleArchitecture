@@ -6,6 +6,14 @@ object BuildPlugins {
 
     const val ANDROID = "android"
     const val ANDROID_LIBRARY = "android-library"
-    const val KAPT = "kapt"
+    const val KAPT = "org.jetbrains.kotlin.kapt"
     const val HILT = "com.google.dagger.hilt.android"
+
+    const val KTLINT = "ktlint-settings"
+    const val SPOTLESS = "spotless-settings"
+    const val DETEKT = "detekt-settings"
+
+    const val UPDATE_DEPENDENCY_VERSIONS = "update-dependency-versions"
+
+    const val DOKKA = "dokka-settings"
 }
