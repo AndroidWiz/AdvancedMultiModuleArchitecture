@@ -1,6 +1,6 @@
 package test
 
-import dependencies.DependencyVersions
+import dependencis.DependencyVersions
 
 object TestDependencies {
 

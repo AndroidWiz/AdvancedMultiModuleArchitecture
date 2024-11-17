@@ -75,6 +75,9 @@ tasks.named("detekt") {
 //    dependsOn(":app:detektBaseline")
     dependsOn("detektBaseline")
     dependsOn(":features:login:detektBaseline")
+    dependsOn(":core:data:detektBaseline")
+    dependsOn(":core:domain:detektBaseline")
+    dependsOn(":core:presentation:detektBaseline")
 //    inputs.file(file("${rootProject.projectDir}/detekt/detekt-baseline.xml"))
 }
 

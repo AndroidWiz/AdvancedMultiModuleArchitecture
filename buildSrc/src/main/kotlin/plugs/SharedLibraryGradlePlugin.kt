@@ -4,7 +4,7 @@ import build.BuildConfig
 import build.BuildCreator
 import build.BuildDimensions
 import com.android.build.api.dsl.LibraryExtension
-import dependencies.DependencyVersions
+import dependencis.DependencyVersions
 import flavors.BuildFlavor
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
