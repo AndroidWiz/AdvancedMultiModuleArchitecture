@@ -2,6 +2,6 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
-    <ID>FunctionMaxLength:NetworkModule.kt$NetworkModule$@Provides @Singleton fun provideOkHttpLoggingInterceptor(): Interceptor</ID>
+    <ID>FunctionMaxLength:NetworkModule.kt$NetworkModule$@Provides @Singleton @Named("OkHttpLoggingInterceptor") fun provideOkHttpLoggingInterceptor(): Interceptor</ID>
   </CurrentIssues>
 </SmellBaseline>
