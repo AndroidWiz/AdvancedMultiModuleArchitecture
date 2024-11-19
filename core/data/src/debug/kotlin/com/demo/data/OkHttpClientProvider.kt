@@ -1,5 +1,6 @@
 package com.demo.data
 
+import com.demo.data.okhttp.OkHttpClientProviderInterface
 import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
 import java.security.SecureRandom

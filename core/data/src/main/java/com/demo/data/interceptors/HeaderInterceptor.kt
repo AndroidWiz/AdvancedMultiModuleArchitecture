@@ -1,4 +1,4 @@
-package com.demo.data
+package com.demo.data.interceptors
 
 import okhttp3.Interceptor
 import okhttp3.Response

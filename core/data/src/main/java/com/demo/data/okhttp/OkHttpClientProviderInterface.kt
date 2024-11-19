@@ -1,4 +1,4 @@
-package com.demo.data
+package com.demo.data.okhttp
 
 import okhttp3.OkHttpClient
 
