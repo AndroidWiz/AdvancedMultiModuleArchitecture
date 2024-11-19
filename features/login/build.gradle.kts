@@ -1,7 +1,9 @@
 import dependencis.androidTestImpl
 import dependencis.androidX
+import dependencis.dataModule
 import dependencis.debugImpl
 import dependencis.hilt
+import dependencis.retrofit
 import dependencis.room
 import dependencis.testImpl
 import plugs.SharedLibraryGradlePlugin
@@ -18,9 +20,10 @@ android {
 
 dependencies {
   androidX()
-
   hilt()
   room()
+  retrofit()
+  dataModule()
 
   testImpl()
   androidTestImpl()
