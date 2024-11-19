@@ -3,7 +3,7 @@
   <ManuallySuppressedIssues/>
   <CurrentIssues>
     <ID>FunctionMaxLength:InterceptorModule.kt$InterceptorModule$@Provides @Singleton @Named(LOGGING_INTERCEPTOR_TAG) fun provideOkHttpLoggingInterceptor(): Interceptor</ID>
-    <ID>NoBlankLineBeforeRbrace:ConfigModule.kt$ConfigModule$ </ID>
-    <ID>NoBlankLineBeforeRbrace:InterceptorModule.kt$InterceptorModule$ </ID>
+    <ID>NoUnusedImports:NetworkModule.kt$com.demo.data.di.NetworkModule.kt</ID>
+    <ID>UnusedImports:NetworkModule.kt$import okhttp3.Call</ID>
   </CurrentIssues>
 </SmellBaseline>

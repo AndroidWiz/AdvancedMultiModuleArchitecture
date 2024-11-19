@@ -4,13 +4,13 @@ import com.demo.data.BuildConfig
 import com.demo.data.OkHttpClientProvider
 import com.demo.data.constants.HEADER_INTERCEPTOR_TAG
 import com.demo.data.constants.LOGGING_INTERCEPTOR_TAG
+import com.demo.data.factory.ServiceFactory
 import com.demo.data.okhttp.OkHttpClientProviderInterface
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Call
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -49,7 +49,7 @@ class NetworkModule {
       .build()
   }
 
-    // retrofit
+  // retrofit
   @Provides
   @Singleton
   fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
@@ -59,5 +59,12 @@ class NetworkModule {
       .addCallAdapterFactory(CoroutineCallAdapterFactory())
 
     return builder.build()
+  }
+
+  // service factory
+  @Provides
+  @Singleton
+  fun provideServiceFactory(retrofit: Retrofit): ServiceFactory {
+    return ServiceFactory(retrofit)
   }
 }
