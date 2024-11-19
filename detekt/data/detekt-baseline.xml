@@ -2,6 +2,8 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
-    <ID>NoWildcardImports:ExampleUnitTest.kt$import org.junit.Assert.*</ID>
+    <ID>FunctionMaxLength:InterceptorModule.kt$InterceptorModule$@Provides @Singleton @Named(LOGGING_INTERCEPTOR_TAG) fun provideOkHttpLoggingInterceptor(): Interceptor</ID>
+    <ID>NoUnusedImports:NetworkModule.kt$com.demo.data.di.NetworkModule.kt</ID>
+    <ID>UnusedImports:NetworkModule.kt$import okhttp3.Call</ID>
   </CurrentIssues>
 </SmellBaseline>
