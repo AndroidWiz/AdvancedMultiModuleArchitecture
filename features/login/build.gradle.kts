@@ -1,5 +1,6 @@
 import dependencis.androidTestImpl
 import dependencis.androidX
+import dependencis.dataModule
 import dependencis.debugImpl
 import dependencis.hilt
 import dependencis.retrofit
@@ -19,11 +20,10 @@ android {
 
 dependencies {
   androidX()
-
   hilt()
   room()
-
   retrofit()
+  dataModule()
 
   testImpl()
   androidTestImpl()
