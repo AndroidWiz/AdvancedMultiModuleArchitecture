@@ -16,7 +16,7 @@
 
 * 262 lines of code (loc)
 
-* 206 source lines of code (sloc)
+* 205 source lines of code (sloc)
 
 * 124 logical lines of code (lloc)
 
@@ -36,4 +36,4 @@
 
 ## Findings (0)
 
-generated with [detekt version 1.23.3](https://detekt.dev/) on 2024-11-19 13:23:21 UTC
+generated with [detekt version 1.23.3](https://detekt.dev/) on 2024-11-19 15:27:07 UTC

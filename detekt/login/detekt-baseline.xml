@@ -1,7 +1,7 @@
-<?xml version="1.0" ?>
+<?xml version='1.0' encoding='UTF-8'?>
 <SmellBaseline>
-  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <ManuallySuppressedIssues/>
   <CurrentIssues>
-    <ID>FunctionMaxLength:Test.kt$Test$fun LoginLoginLoginLoginLoginLoginLoginLoginLoginLoginLoginLoginLoginLoginLogin()</ID>
+    <ID>SpacingAroundParens:LoginService.kt$LoginService$)</ID>
   </CurrentIssues>
 </SmellBaseline>
