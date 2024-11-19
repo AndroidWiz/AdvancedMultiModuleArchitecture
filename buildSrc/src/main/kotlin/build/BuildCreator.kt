@@ -36,6 +36,12 @@ sealed class BuildCreator(val name: String) {
             return namedDomainObjectContainer.getByName(name) {
                 isMinifyEnabled = Build.Debug.isMinifyEnabled
                 enableUnitTestCoverage = Build.Debug.isEnabledUnitTestCoverage
+
+                buildConfigStringField(name = BuildVariables.BASE_URL, value = project.getLocalProperty("dev.debug_endpoint"))
+                buildConfigIntField(name = BuildVariables.DB_VERSION, value = project.getLocalProperty("dev.db_version"))
+                buildConfigBooleanField(name = BuildVariables.CAN_CLEAR_CACHE, value = project.getLocalProperty("dev.clear_cache"))
+                buildConfigStringField(name = BuildVariables.MAP_KEY, value = project.getLocalProperty("dev.map_key"))
+                buildConfigStringField(name = BuildVariables.PIN_CERTIFICATE, value = project.getLocalProperty("dev.project.certificate_pin"))
             }
         }
     }
@@ -59,6 +65,12 @@ sealed class BuildCreator(val name: String) {
             return namedDomainObjectContainer.getByName(name) {
                 isMinifyEnabled = Build.Release.isMinifyEnabled
                 enableUnitTestCoverage = Build.Release.isEnabledUnitTestCoverage
+
+                buildConfigStringField(name = BuildVariables.BASE_URL, value = project.getLocalProperty("dev.prod_endpoint"))
+                buildConfigIntField(name = BuildVariables.DB_VERSION, value = project.getLocalProperty("dev.db_version"))
+                buildConfigBooleanField(name = BuildVariables.CAN_CLEAR_CACHE, value = project.getLocalProperty("dev.clear_cache"))
+                buildConfigStringField(name = BuildVariables.MAP_KEY, value = project.getLocalProperty("release.map_key"))
+                buildConfigStringField(name = BuildVariables.PIN_CERTIFICATE, value = project.getLocalProperty("release.project.certificate_pin"))
             }
         }
     }
@@ -85,6 +97,11 @@ sealed class BuildCreator(val name: String) {
                 isMinifyEnabled = Build.QA.isMinifyEnabled
                 enableUnitTestCoverage = Build.QA.isEnabledUnitTestCoverage
 
+                buildConfigStringField(name = BuildVariables.BASE_URL, value = project.getLocalProperty("dev.qa_endpoint"))
+                buildConfigIntField(name = BuildVariables.DB_VERSION, value = project.getLocalProperty("dev.db_version"))
+                buildConfigBooleanField(name = BuildVariables.CAN_CLEAR_CACHE, value = project.getLocalProperty("dev.clear_cache"))
+                buildConfigStringField(name = BuildVariables.MAP_KEY, value = project.getLocalProperty("dev.map_key"))
+                buildConfigStringField(name = BuildVariables.PIN_CERTIFICATE, value = project.getLocalProperty("dev.project.certificate_pin"))
             }
         }
     }

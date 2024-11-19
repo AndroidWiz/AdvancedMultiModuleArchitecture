@@ -6,7 +6,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Call
 import okhttp3.Interceptor
-import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.Locale
 import java.util.concurrent.TimeUnit
@@ -75,11 +74,25 @@ class NetworkModule {
     return interceptor
   }
 
+  // okhttp client provider
+  @Provides
+  @Singleton
+  @Named("OkHttpLoggingInterceptor")
+  fun provideOkHttpClientProvider(): OkHttpClientProviderInterface {
+    return OkHttpClientProvider()
+  }
+
   // okhttp factory
   @Provides
   @Singleton
-  fun provideOkHttpCallFactory(interceptor: Interceptor): Call.Factory {
-    return OkHttpClient.Builder().addInterceptor(interceptor)
+  fun provideOkHttpCallFactory(
+    @Named("OkHttpLoggingInterceptor") okHttpLoggingInterceptor: Interceptor,
+    @Named("HeaderInterceptor") headerInterceptor: Interceptor,
+    okHttpClientProvider: OkHttpClientProviderInterface,
+  ): Call.Factory {
+    return okHttpClientProvider.getOkHttpClient(BuildConfig.PIN_CERTIFICATE)
+      .addInterceptor(okHttpLoggingInterceptor)
+      .addInterceptor(headerInterceptor)
       .retryOnConnectionFailure(true)
       .followRedirects(false)
       .followSslRedirects(false)
