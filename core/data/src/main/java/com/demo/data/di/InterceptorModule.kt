@@ -20,40 +20,39 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class InterceptorModule {
 
-    @Provides
-    @Singleton
-    @Named(HEADER_INTERCEPTOR_TAG)
-    fun provideHeaderInterceptor(
-        @Named("ClientId") clientId: String,
-        @Named("AccessToken") accessToken: () -> String?,
-        @Named("Language") language: () -> Locale,
-    ): Interceptor {
-        return HeaderInterceptor(
-            clientId = clientId,
-            accessTokenProvider = accessToken,
-            languageProvider = language,
-        )
+  @Provides
+  @Singleton
+  @Named(HEADER_INTERCEPTOR_TAG)
+  fun provideHeaderInterceptor(
+    @Named("ClientId") clientId: String,
+    @Named("AccessToken") accessToken: () -> String?,
+    @Named("Language") language: () -> Locale,
+  ): Interceptor {
+    return HeaderInterceptor(
+      clientId = clientId,
+      accessTokenProvider = accessToken,
+      languageProvider = language,
+    )
+  }
+
+  // http logging interceptor
+  @Provides
+  @Singleton
+  @Named(LOGGING_INTERCEPTOR_TAG)
+  fun provideOkHttpLoggingInterceptor(): Interceptor {
+    val interceptor = HttpLoggingInterceptor()
+    interceptor.level = if (BuildConfig.DEBUG) {
+      HttpLoggingInterceptor.Level.BODY
+    } else {
+      HttpLoggingInterceptor.Level.NONE
     }
 
-    // http logging interceptor
-    @Provides
-    @Singleton
-    @Named(LOGGING_INTERCEPTOR_TAG)
-    fun provideOkHttpLoggingInterceptor(): Interceptor {
-        val interceptor = HttpLoggingInterceptor()
-        interceptor.level = if (BuildConfig.DEBUG) {
-            HttpLoggingInterceptor.Level.BODY
-        } else {
-            HttpLoggingInterceptor.Level.NONE
-        }
-
-        if (!BuildConfig.DEBUG) {
-            // remove headers containing sensitive data
-            interceptor.redactHeader(CLIENT_ID_HEADER)
-            interceptor.redactHeader(AUTHORIZATION_HEADER)
-        }
-
-        return interceptor
+    if (!BuildConfig.DEBUG) {
+      // remove headers containing sensitive data
+      interceptor.redactHeader(CLIENT_ID_HEADER)
+      interceptor.redactHeader(AUTHORIZATION_HEADER)
     }
 
+    return interceptor
+  }
 }

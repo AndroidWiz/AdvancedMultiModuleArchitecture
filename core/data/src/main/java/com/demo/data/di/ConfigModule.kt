@@ -36,5 +36,4 @@ class ConfigModule {
   fun provideClientId(): String {
     return "" // get client id from prefs
   }
-
 }
