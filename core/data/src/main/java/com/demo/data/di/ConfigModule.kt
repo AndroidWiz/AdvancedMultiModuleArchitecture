@@ -37,5 +37,4 @@ class ConfigModule {
     return "" // get client id from prefs
   }
 
-
 }
