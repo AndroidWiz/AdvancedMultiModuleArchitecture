@@ -14,9 +14,9 @@
 
 ## Complexity Report
 
-* 78 lines of code (loc)
+* 80 lines of code (loc)
 
-* 55 source lines of code (sloc)
+* 56 source lines of code (sloc)
 
 * 26 logical lines of code (lloc)
 
@@ -28,7 +28,7 @@
 
 * 0 number of total code smells
 
-* 9% comment source ratio
+* 8% comment source ratio
 
 * 153 mcc per 1,000 lloc
 
@@ -36,4 +36,4 @@
 
 ## Findings (0)
 
-generated with [detekt version 1.23.3](https://detekt.dev/) on 2024-11-19 15:39:40 UTC
+generated with [detekt version 1.23.3](https://detekt.dev/) on 2024-11-22 21:44:58 UTC
