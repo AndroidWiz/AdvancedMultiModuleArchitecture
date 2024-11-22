@@ -3,5 +3,6 @@
   <ManuallySuppressedIssues/>
   <CurrentIssues>
     <ID>FunctionMaxLength:InterceptorModule.kt$InterceptorModule$@Provides @Singleton @Named(LOGGING_INTERCEPTOR_TAG) fun provideOkHttpLoggingInterceptor(): Interceptor</ID>
+    <ID>SpacingAroundParens:Extensions.kt$)</ID>
   </CurrentIssues>
 </SmellBaseline>
