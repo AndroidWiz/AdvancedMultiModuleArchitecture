@@ -3,7 +3,7 @@ package com.demo.data.source
 interface DataSource {
   companion object {
     const val SUCCESS: Int = 200
-    const val SEE_OTHERS: Int = 300
+    const val SEE_OTHERS: Int = 303
     const val CREATED: Int = 201
     const val BAD_REQUEST: Int = 400
     const val UNAUTHORIZED: Int = 401
