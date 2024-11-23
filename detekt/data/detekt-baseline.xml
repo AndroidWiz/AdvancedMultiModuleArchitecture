@@ -2,6 +2,9 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
+    <ID>FunctionMaxLength:CoroutinesModule.kt$CoroutinesModule$@Provides @Singleton @Named(DISPATCHER_DEFAULT_TAG) fun provideDefaultCoroutineDispatcher(): CoroutineDispatcher</ID>
     <ID>FunctionMaxLength:InterceptorModule.kt$InterceptorModule$@Provides @Singleton @Named(LOGGING_INTERCEPTOR_TAG) fun provideOkHttpLoggingInterceptor(): Interceptor</ID>
+    <ID>NoBlankLineBeforeRbrace:CoroutinesModule.kt$CoroutinesModule$ </ID>
+    <ID>NoConsecutiveBlankLines:CoroutinesModule.kt$CoroutinesModule$ </ID>
   </CurrentIssues>
 </SmellBaseline>

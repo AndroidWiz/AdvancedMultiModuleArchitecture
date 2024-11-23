@@ -2,6 +2,7 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
-    <ID>NoBlankLineBeforeRbrace:LoginMapperImpl.kt$LoginMapperImpl$ </ID>
+    <ID>NoUnusedImports:NetworkModule.kt$com.demo.login.data.di.NetworkModule.kt</ID>
+    <ID>UnusedImports:NetworkModule.kt$import okhttp3.Dispatcher</ID>
   </CurrentIssues>
 </SmellBaseline>
