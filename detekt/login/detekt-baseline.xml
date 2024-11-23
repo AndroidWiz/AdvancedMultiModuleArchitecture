@@ -1,8 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <SmellBaseline>
   <ManuallySuppressedIssues/>
-  <CurrentIssues>
-    <ID>NoUnusedImports:NetworkModule.kt$com.demo.login.data.di.NetworkModule.kt</ID>
-    <ID>UnusedImports:NetworkModule.kt$import okhttp3.Dispatcher</ID>
-  </CurrentIssues>
+  <CurrentIssues/>
 </SmellBaseline>
