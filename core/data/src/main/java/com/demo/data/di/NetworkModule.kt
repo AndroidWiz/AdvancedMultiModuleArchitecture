@@ -1,11 +1,15 @@
 package com.demo.data.di
 
+import android.content.Context
 import com.demo.data.BuildConfig
 import com.demo.data.OkHttpClientProvider
+import com.demo.data.connectivity.NetworkMonitorInterface
+import com.demo.data.connectivity.NetworkMonitorInterfaceImpl
 import com.demo.data.constants.HEADER_INTERCEPTOR_TAG
 import com.demo.data.constants.LOGGING_INTERCEPTOR_TAG
 import com.demo.data.factory.ServiceFactory
 import com.demo.data.okhttp.OkHttpClientProviderInterface
+import com.google.gson.Gson
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -21,6 +25,18 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
+
+  @Provides
+  @Singleton
+  fun provideGson(): Gson {
+    return Gson()
+  }
+
+  @Provides
+  @Singleton
+  fun provideNetworkMonitor(context: Context): NetworkMonitorInterface {
+    return NetworkMonitorInterfaceImpl(context = context)
+  }
 
   // okhttp client provider
   @Provides

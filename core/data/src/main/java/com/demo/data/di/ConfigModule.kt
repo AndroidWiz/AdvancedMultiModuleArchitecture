@@ -3,6 +3,7 @@ package com.demo.data.di
 import com.demo.data.constants.ACCESS_TOKEN_TAG
 import com.demo.data.constants.CLIENT_ID_TAG
 import com.demo.data.constants.LANGUAGE_TAG
+import com.demo.data.constants.USER_ID_TAG
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,6 +15,13 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class ConfigModule {
+
+  @Provides
+  @Singleton
+  @Named(USER_ID_TAG)
+  fun provideUserId(): () -> String? {
+    return { "" } // get user id from preferences
+  }
 
   @Provides
   @Singleton
