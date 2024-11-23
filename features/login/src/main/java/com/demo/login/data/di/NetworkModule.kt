@@ -19,31 +19,31 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
 
-    @Provides
-    @Singleton
-    fun provideLoginServiceFactory(serviceFactory: ServiceFactory): LoginService {
-        return serviceFactory.create(LoginService::class.java)
-    }
+  @Provides
+  @Singleton
+  fun provideLoginServiceFactory(serviceFactory: ServiceFactory): LoginService {
+    return serviceFactory.create(LoginService::class.java)
+  }
 
-    @Provides
-    @Singleton
-    fun provideNetworkDataSource(
-        loginService: LoginService,
-        gson: Gson,
-        networkMonitorInterface: NetworkMonitorInterface,
-        @Named(USER_ID_TAG) userIdProvider: () -> String,
-    ): NetworkDataSource<LoginService> {
-        return NetworkDataSource(
-            service = loginService,
-            gson = gson,
-            networkMonitorInterface = networkMonitorInterface,
-            userIdProvider = userIdProvider
-        )
-    }
+  @Provides
+  @Singleton
+  fun provideNetworkDataSource(
+    loginService: LoginService,
+    gson: Gson,
+    networkMonitorInterface: NetworkMonitorInterface,
+    @Named(USER_ID_TAG) userIdProvider: () -> String,
+  ): NetworkDataSource<LoginService> {
+    return NetworkDataSource(
+      service = loginService,
+      gson = gson,
+      networkMonitorInterface = networkMonitorInterface,
+      userIdProvider = userIdProvider,
+    )
+  }
 
-    @Provides
-    @Singleton
-    fun provideLoginRemoteImpl(networkDataSource: NetworkDataSource<LoginService>): LoginRemoteInterface {
-        return LoginRemoteInterfaceImpl(networkDataSource = networkDataSource)
-    }
+  @Provides
+  @Singleton
+  fun provideLoginRemoteImpl(networkDataSource: NetworkDataSource<LoginService>): LoginRemoteInterface {
+    return LoginRemoteInterfaceImpl(networkDataSource = networkDataSource)
+  }
 }
