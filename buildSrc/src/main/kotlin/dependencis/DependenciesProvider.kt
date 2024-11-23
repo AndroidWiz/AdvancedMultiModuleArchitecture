@@ -36,6 +36,12 @@ fun DependencyHandler.room() {
     kapt(Dependencies.ROOM_COMPILER)
 }
 
+fun DependencyHandler.dataStore() {
+    implementation(Dependencies.DATA_STORE)
+    implementation(Dependencies.KOTLIN_COLLECTION)
+    implementation(Dependencies.KOTLIN_SERIALIZATION)
+}
+
 fun DependencyHandler.retrofit() {
     implementation(Dependencies.RETROFIT)
     implementation(Dependencies.RETROFIT_CONVERTER_GSON)

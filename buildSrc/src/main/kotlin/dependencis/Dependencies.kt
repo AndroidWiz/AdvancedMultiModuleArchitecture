@@ -29,4 +29,8 @@ object Dependencies {
     const val ROOM_RUNTIME = "androidx.room:room-runtime:${DependencyVersions.ROOM}"
     const val ROOM_COMPILER = "androidx.room:room-compiler:${DependencyVersions.ROOM}"
     const val ROOM_KTX = "androidx.room:room-ktx:${DependencyVersions.ROOM}"
+
+    const val DATA_STORE = "androidx.datastore:datastore:${DependencyVersions.DATA_STORE_VERSION}"
+    const val KOTLIN_COLLECTION = "org.jetbrains.kotlinx:kotlinx-collections-immutable:${DependencyVersions.KOTLIN_COLLECTION_VERSION}"
+    const val KOTLIN_SERIALIZATION = "org.jetbrains.kotlinx:kotlinx-serialization-json:${DependencyVersions.KOTLIN_SERIALIZATION_VERSION}"
 }
