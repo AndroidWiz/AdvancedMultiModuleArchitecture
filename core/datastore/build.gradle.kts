@@ -1,9 +1,6 @@
 import dependencis.androidTestImpl
 import dependencis.dataStore
 import dependencis.debugImpl
-import dependencis.hilt
-import dependencis.okHttp
-import dependencis.retrofit
 import dependencis.testImpl
 import plugs.SharedLibraryGradlePlugin
 
@@ -14,13 +11,10 @@ plugins {
 apply<SharedLibraryGradlePlugin>()
 
 android {
-  namespace = "com.demo.data"
+  namespace = "com.demo.datastore"
 }
 
 dependencies {
-  retrofit()
-  okHttp()
-  hilt()
   dataStore()
 
   testImpl()

@@ -81,3 +81,7 @@ fun DependencyHandler.domainModule() {
 fun DependencyHandler.presentationModule() {
     moduleImplementation(project(":core:presentation"))
 }
+
+fun DependencyHandler.datastoreModule() {
+    moduleImplementation(project(":core:datastore"))
+}

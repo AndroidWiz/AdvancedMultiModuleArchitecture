@@ -5,6 +5,7 @@ import dependencis.DependencyVersions
 import dependencis.androidTestImpl
 import dependencis.androidX
 import dependencis.dataModule
+import dependencis.datastoreModule
 import dependencis.debugImpl
 import dependencis.domainModule
 import dependencis.hilt
@@ -108,6 +109,7 @@ dependencies {
   dataModule()
   domainModule()
   presentationModule()
+  datastoreModule()
   androidX()
   hilt()
   room()
