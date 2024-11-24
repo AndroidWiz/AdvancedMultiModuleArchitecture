@@ -12,13 +12,31 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.datastore.core.DataStore
+import androidx.datastore.core.DataStoreFactory
+import androidx.datastore.dataStoreFile
 import com.demo.advancedmultimodulearchitecture.ui.theme.AdvancedMultiModuleArchitectureTheme
+import com.demo.datastore.settings.AppSettings
+import com.demo.datastore.settings.AppSettingsSerializer
 import com.demo.info.MapProvider
 import com.demo.provider.DataProvider
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 
 class MainActivity : ComponentActivity() {
+
+  lateinit var appSettingsDataStore: DataStore<AppSettings>
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+
+    appSettingsDataStore = DataStoreFactory.create(
+      serializer = AppSettingsSerializer(),
+      produceFile = { dataStoreFile("app_settings.json") },
+      scope = CoroutineScope(Dispatchers.IO + SupervisorJob()),
+    )
+
     enableEdgeToEdge()
     setContent {
       AdvancedMultiModuleArchitectureTheme {
