@@ -3,7 +3,6 @@ package com.demo.advancedmultimodulearchitecture
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -12,20 +11,42 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.datastore.core.DataStore
+import androidx.datastore.core.DataStoreFactory
+import androidx.datastore.dataStoreFile
+import com.demo.advancedmultimodulearchitecture.ui.screens.SettingsScreen
 import com.demo.advancedmultimodulearchitecture.ui.theme.AdvancedMultiModuleArchitectureTheme
-import com.demo.info.MapProvider
-import com.demo.provider.DataProvider
+import com.demo.datastore.settings.AppSettings
+import com.demo.datastore.settings.AppSettingsSerializer
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 
 class MainActivity : ComponentActivity() {
+
+  lateinit var appSettingsDataStore: DataStore<AppSettings>
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    enableEdgeToEdge()
+
+    appSettingsDataStore = DataStoreFactory.create(
+      serializer = AppSettingsSerializer(),
+      produceFile = { dataStoreFile("app_settings.json") },
+      scope = CoroutineScope(Dispatchers.IO + SupervisorJob()),
+    )
+
+//    enableEdgeToEdge()
     setContent {
       AdvancedMultiModuleArchitectureTheme {
         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-          Greeting(
-            name = "${DataProvider.USERNAME} ${MapProvider.MAP_ID}",
+                    /*Greeting(
+                      name = "${DataProvider.USERNAME} ${MapProvider.MAP_ID}",
+                      modifier = Modifier.padding(innerPadding),
+                    )*/
+
+          SettingsScreen(
             modifier = Modifier.padding(innerPadding),
+            appSettingsDataStore = appSettingsDataStore,
           )
         }
       }
@@ -60,9 +81,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
       modifier = modifier,
     )
   }
-}
-
-fun MainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMainMain() {
 }
 
 @Preview(showBackground = true)

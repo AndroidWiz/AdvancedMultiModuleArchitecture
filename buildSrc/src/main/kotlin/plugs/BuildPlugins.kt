@@ -16,4 +16,5 @@ object BuildPlugins {
     const val UPDATE_DEPENDENCY_VERSIONS = "update-dependency-versions"
 
     const val DOKKA = "dokka-settings"
+    const val KOTLINX_SERIALIZATION = "org.jetbrains.kotlin.plugin.serialization"
 }
