@@ -17,4 +17,6 @@ object BuildPlugins {
 
     const val DOKKA = "dokka-settings"
     const val KOTLINX_SERIALIZATION = "org.jetbrains.kotlin.plugin.serialization"
+
+    const val GOOGLE_PROTO_BUF = "com.google.protobuf"
 }
