@@ -24,4 +24,7 @@ object DependencyVersions {
     const val DATA_STORE_VERSION = "1.1.1"
     const val KOTLIN_COLLECTION_VERSION = "0.3.7"
     const val KOTLIN_SERIALIZATION_VERSION = "1.6.2"
+
+    const val PROTO_BUF_JAVA_VERSION = "4.28.3"
+    const val PROTO_BUF_KOTLIN_VERSION = "4.28.3"
 }
