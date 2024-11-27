@@ -21,7 +21,8 @@ fun DependencyHandler.debugImplementation(dependency: String) {
 
 fun DependencyHandler.kapt(dependency: String) {
 //    add("kapt", dependency) // kapt replaced with annotationProcessor due to errors
-    add("annotationProcessor", dependency)
+//    add("annotationProcessor", dependency) // removed due to dex path errors
+    add("kapt", dependency)
 }
 
 fun DependencyHandler.moduleImplementation(dependency: Dependency) {

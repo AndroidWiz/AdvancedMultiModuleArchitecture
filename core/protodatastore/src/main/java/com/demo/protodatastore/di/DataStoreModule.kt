@@ -23,13 +23,13 @@ object DataStoreModule {
 
   @Provides
   @Singleton
-  fun provideDataStoreSession(@ApplicationContext context: Context): DataStore<Session> {
+  fun provideSessionDataStore(@ApplicationContext context: Context): DataStore<Session> {
     return context.sessionDataStore
   }
 
   @Provides
   @Singleton
-  fun provideDataStorePreferences(@ApplicationContext context: Context): DataStore<Preferences> {
+  fun providePreferencesDataStore(@ApplicationContext context: Context): DataStore<Preferences> {
     return context.prefsDataStore
   }
 
