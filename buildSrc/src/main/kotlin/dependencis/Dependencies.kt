@@ -33,4 +33,8 @@ object Dependencies {
     const val DATA_STORE = "androidx.datastore:datastore:${DependencyVersions.DATA_STORE_VERSION}"
     const val KOTLIN_COLLECTION = "org.jetbrains.kotlinx:kotlinx-collections-immutable:${DependencyVersions.KOTLIN_COLLECTION_VERSION}"
     const val KOTLIN_SERIALIZATION = "org.jetbrains.kotlinx:kotlinx-serialization-json:${DependencyVersions.KOTLIN_SERIALIZATION_VERSION}"
+
+    const val PROTO_BUFF_JAVA_LITE = "com.google.protobuf:protobuf-javalite:${DependencyVersions.PROTO_BUF_JAVA_VERSION}"
+    const val PROTO_BUFF_KOTLIN_LITE = "com.google.protobuf:protobuf-kotlin-lite:${DependencyVersions.PROTO_BUF_KOTLIN_VERSION}"
+    const val PROTO_BUFF_ARTIFACT = "com.google.protobuf:protoc:${DependencyVersions.PROTO_BUF_KOTLIN_VERSION}"
 }

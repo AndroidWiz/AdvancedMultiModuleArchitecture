@@ -13,6 +13,7 @@ import dependencis.hilt
 import dependencis.loginModule
 import dependencis.okHttp
 import dependencis.presentationModule
+import dependencis.protoDatastoreModule
 import dependencis.retrofit
 import dependencis.room
 import dependencis.testImpl
@@ -111,6 +112,7 @@ dependencies {
   domainModule()
   presentationModule()
   datastoreModule()
+  protoDatastoreModule()
   androidX()
   hilt()
   room()

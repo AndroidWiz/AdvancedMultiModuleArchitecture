@@ -42,6 +42,12 @@ fun DependencyHandler.dataStore() {
     implementation(Dependencies.KOTLIN_SERIALIZATION)
 }
 
+fun DependencyHandler.protoDataStore() {
+    implementation(Dependencies.DATA_STORE)
+    implementation(Dependencies.PROTO_BUFF_JAVA_LITE)
+    implementation(Dependencies.PROTO_BUFF_KOTLIN_LITE)
+}
+
 fun DependencyHandler.retrofit() {
     implementation(Dependencies.RETROFIT)
     implementation(Dependencies.RETROFIT_CONVERTER_GSON)
@@ -84,4 +90,8 @@ fun DependencyHandler.presentationModule() {
 
 fun DependencyHandler.datastoreModule() {
     moduleImplementation(project(":core:datastore"))
+}
+
+fun DependencyHandler.protoDatastoreModule() {
+    moduleImplementation(project(":core:protodatastore"))
 }
