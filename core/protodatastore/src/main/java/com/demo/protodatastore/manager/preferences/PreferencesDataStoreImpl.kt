@@ -1,4 +1,4 @@
-package com.demo.protodatastore.manager
+package com.demo.protodatastore.manager.preferences
 
 import androidx.datastore.core.DataStore
 import com.demo.proto.Preferences
