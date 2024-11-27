@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <SmellBaseline>
   <ManuallySuppressedIssues/>
-  <CurrentIssues/>
+  <CurrentIssues>
+    <ID>ImportOrdering:DataStoreModule.kt$import android.content.Context import androidx.datastore.core.DataStore import com.demo.proto.Preferences import com.demo.proto.Session import com.demo.protodatastore.factory.prefsDataStore import com.demo.protodatastore.factory.sessionDataStore import com.demo.protodatastore.manager.preferences.PreferencesDataStoreInterface import com.demo.protodatastore.manager.preferences.PreferencesDataStoreImpl import com.demo.protodatastore.manager.session.SessionDataStoreInterface import com.demo.protodatastore.manager.session.SessionDataStoreImpl import dagger.Module import dagger.Provides import dagger.hilt.InstallIn import dagger.hilt.android.qualifiers.ApplicationContext import dagger.hilt.components.SingletonComponent import javax.inject.Singleton</ID>
+    <ID>SpacingAroundColon:DataStoreModule.kt$DataStoreModule$:</ID>
+    <ID>SpacingAroundParens:DataStoreModule.kt$DataStoreModule$(</ID>
+  </CurrentIssues>
 </SmellBaseline>

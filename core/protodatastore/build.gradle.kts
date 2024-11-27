@@ -1,6 +1,7 @@
 import dependencis.Dependencies.PROTO_BUFF_ARTIFACT
 import dependencis.androidTestImpl
 import dependencis.debugImpl
+import dependencis.hilt
 import dependencis.protoDataStore
 import dependencis.testImpl
 import plugs.SharedLibraryGradlePlugin
@@ -37,6 +38,7 @@ android {
 }
 
 dependencies {
+  hilt()
   protoDataStore()
   testImpl()
   androidTestImpl()
