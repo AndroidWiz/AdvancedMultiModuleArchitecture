@@ -19,6 +19,10 @@ fun DependencyHandler.debugImplementation(dependency: String) {
     add("debugImplementation", dependency)
 }
 
+fun DependencyHandler.releaseImplementation(dependency: String) {
+    add("releaseImplementation", dependency)
+}
+
 fun DependencyHandler.kapt(dependency: String) {
 //    add("kapt", dependency) // kapt replaced with annotationProcessor due to errors
 //    add("annotationProcessor", dependency) // removed due to dex path errors

@@ -1,5 +1,6 @@
 
 import dependencis.androidTestImpl
+import dependencis.chucker
 import dependencis.dataStore
 import dependencis.debugImpl
 import dependencis.hilt
@@ -23,6 +24,7 @@ dependencies {
   retrofit()
   okHttp()
   hilt()
+  chucker()
   dataStore()
   protoDatastoreModule()
 

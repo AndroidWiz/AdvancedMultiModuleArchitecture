@@ -27,4 +27,6 @@ object DependencyVersions {
 
     const val PROTO_BUF_JAVA_VERSION = "4.28.3"
     const val PROTO_BUF_KOTLIN_VERSION = "4.28.3"
+
+    const val CHUCKER_VERSION = "4.1.0"
 }
