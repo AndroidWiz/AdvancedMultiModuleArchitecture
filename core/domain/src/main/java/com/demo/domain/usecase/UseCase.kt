@@ -1,6 +1,6 @@
-package com.demo.data.result
+package com.demo.domain.usecase
 
-import com.demo.data.model.ErrorMessage
+import com.demo.domain.result.Outcome
 
 interface UseCase<R> {
 
@@ -8,7 +8,7 @@ interface UseCase<R> {
 
   suspend fun onEmptyResponse()
 
-  suspend fun onError(errorMessage: ErrorMessage)
+  suspend fun onError(errorMessage: com.demo.domain.model.ErrorMessage)
 
 //    suspend fun onComplete()
 }

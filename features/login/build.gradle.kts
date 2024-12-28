@@ -2,6 +2,7 @@ import dependencis.androidTestImpl
 import dependencis.androidX
 import dependencis.dataModule
 import dependencis.debugImpl
+import dependencis.domainModule
 import dependencis.hilt
 import dependencis.retrofit
 import dependencis.room
@@ -24,6 +25,7 @@ dependencies {
   room()
   retrofit()
   dataModule()
+  domainModule()
 
   testImpl()
   androidTestImpl()

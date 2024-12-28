@@ -4,11 +4,11 @@ import com.demo.data.constants.DISPATCHER_DEFAULT_TAG
 import com.demo.data.constants.USER_ID_TAG
 import com.demo.data.factory.ServiceFactory
 import com.demo.data.source.NetworkDataSource
+import com.demo.login.data.mapper.LoginMapper
+import com.demo.login.data.mapper.LoginMapperImpl
 import com.demo.login.data.service.LoginService
 import com.demo.login.data.source.LoginRemoteInterface
 import com.demo.login.data.source.LoginRemoteInterfaceImpl
-import com.demo.login.domain.mapper.LoginMapper
-import com.demo.login.domain.mapper.LoginMapperImpl
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides

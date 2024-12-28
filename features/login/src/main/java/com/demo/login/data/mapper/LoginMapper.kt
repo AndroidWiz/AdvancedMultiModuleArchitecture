@@ -1,4 +1,4 @@
-package com.demo.login.domain.mapper
+package com.demo.login.data.mapper
 
 import com.demo.login.data.responses.UserResponse
 import com.demo.login.domain.models.User
