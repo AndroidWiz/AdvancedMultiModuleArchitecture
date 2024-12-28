@@ -63,7 +63,7 @@ class NetworkModule {
     return okHttpClientProvider.getOkHttpClient(BuildConfig.PIN_CERTIFICATE)
       .addInterceptor(okHttpLoggingInterceptor)
       .addInterceptor(headerInterceptor)
-      .addInterceptor(headerInterceptor)
+      .addInterceptor(chuckerInterceptor)
       .addInterceptor(connectivityInterceptor)
       .addInterceptor(authenticationInterceptor)
       .retryOnConnectionFailure(true)

@@ -1,11 +1,11 @@
 package com.demo.login.data.source
 
-import com.demo.data.error.toDomain
+import com.demo.data.mapper.toDomain
 import com.demo.data.result.Outcome
 import com.demo.data.source.NetworkDataSource
+import com.demo.login.data.mapper.LoginMapper
 import com.demo.login.data.requests.LoginRequestBody
 import com.demo.login.data.service.LoginService
-import com.demo.login.domain.mapper.LoginMapper
 import com.demo.login.domain.models.User
 
 class LoginRemoteInterfaceImpl(

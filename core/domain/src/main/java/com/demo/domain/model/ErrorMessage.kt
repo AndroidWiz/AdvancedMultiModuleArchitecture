@@ -1,4 +1,4 @@
-package com.demo.data.model
+package com.demo.domain.model
 
 data class ErrorMessage(
   val code: Int,

@@ -1,11 +1,11 @@
 package com.demo.data.result
 
-import com.demo.data.model.ErrorMessage
+import com.demo.domain.model.ErrorMessage
 
 sealed class Outcome<T> {
   abstract fun isSuccess(): Boolean
 
-  open fun errorMessage(): ErrorMessage? = null
+  open fun errorMessage(): com.demo.domain.model.ErrorMessage? = null
 
   abstract suspend fun accept(useCase: UseCase<T>)
 
@@ -14,9 +14,9 @@ sealed class Outcome<T> {
     override suspend fun accept(useCase: UseCase<T>) = useCase.onSuccess(this)
   }
 
-  class Error<T>(private val errorMessage: ErrorMessage) : Outcome<T>() {
+  class Error<T>(private val errorMessage: com.demo.domain.model.ErrorMessage) : Outcome<T>() {
     override fun isSuccess(): Boolean = false
-    override fun errorMessage(): ErrorMessage = errorMessage
+    override fun errorMessage(): com.demo.domain.model.ErrorMessage = errorMessage
     override suspend fun accept(useCase: UseCase<T>) = useCase.onError(errorMessage)
   }
 
@@ -27,7 +27,7 @@ sealed class Outcome<T> {
 
   companion object {
     fun <T> success(data: T) = Success<T>(data)
-    fun <T> error(errorMessage: ErrorMessage) = Error<T>(errorMessage)
+    fun <T> error(errorMessage: com.demo.domain.model.ErrorMessage) = Error<T>(errorMessage)
     fun <T> empty() = Empty<T>()
   }
 }
