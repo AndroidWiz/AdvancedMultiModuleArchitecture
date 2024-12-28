@@ -7,6 +7,7 @@ import com.demo.data.connectivity.NetworkMonitorInterface
 import com.demo.data.connectivity.NetworkMonitorInterfaceImpl
 import com.demo.data.constants.AUTHENTICATION_INTERCEPTOR_TAG
 import com.demo.data.constants.CHUCKER_INTERCEPTOR_TAG
+import com.demo.data.constants.CONNECTIVITY_INTERCEPTOR_TAG
 import com.demo.data.constants.HEADER_INTERCEPTOR_TAG
 import com.demo.data.constants.LOGGING_INTERCEPTOR_TAG
 import com.demo.data.factory.ServiceFactory
@@ -56,12 +57,14 @@ class NetworkModule {
     @Named(HEADER_INTERCEPTOR_TAG) headerInterceptor: Interceptor,
     @Named(CHUCKER_INTERCEPTOR_TAG) chuckerInterceptor: Interceptor,
     @Named(AUTHENTICATION_INTERCEPTOR_TAG) authenticationInterceptor: Interceptor,
+    @Named(CONNECTIVITY_INTERCEPTOR_TAG) connectivityInterceptor: Interceptor,
     okHttpClientProvider: OkHttpClientProviderInterface,
   ): OkHttpClient {
     return okHttpClientProvider.getOkHttpClient(BuildConfig.PIN_CERTIFICATE)
       .addInterceptor(okHttpLoggingInterceptor)
       .addInterceptor(headerInterceptor)
-      .addInterceptor(chuckerInterceptor)
+      .addInterceptor(headerInterceptor)
+      .addInterceptor(connectivityInterceptor)
       .addInterceptor(authenticationInterceptor)
       .retryOnConnectionFailure(true)
       .followRedirects(false)

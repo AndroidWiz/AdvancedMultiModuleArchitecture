@@ -5,14 +5,17 @@ import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.chuckerteam.chucker.api.RetentionManager
 import com.demo.data.BuildConfig
+import com.demo.data.connectivity.NetworkMonitorInterface
 import com.demo.data.constants.AUTHENTICATION_INTERCEPTOR_TAG
 import com.demo.data.constants.CHUCKER_INTERCEPTOR_TAG
+import com.demo.data.constants.CONNECTIVITY_INTERCEPTOR_TAG
 import com.demo.data.constants.DISPATCHER_IO_TAG
 import com.demo.data.constants.HEADER_INTERCEPTOR_TAG
 import com.demo.data.constants.LOGGING_INTERCEPTOR_TAG
 import com.demo.data.interceptors.AUTHORIZATION_HEADER
 import com.demo.data.interceptors.AuthenticationInterceptor
 import com.demo.data.interceptors.CLIENT_ID_HEADER
+import com.demo.data.interceptors.ConnectivityInterceptor
 import com.demo.data.interceptors.HeaderInterceptor
 import com.demo.protodatastore.manager.session.SessionDataStoreInterface
 import dagger.Module
@@ -42,6 +45,16 @@ class InterceptorModule {
       clientId = clientId,
       languageProvider = language,
     )
+  }
+
+  // connectivity interceptor
+  @Provides
+  @Singleton
+  @Named(CONNECTIVITY_INTERCEPTOR_TAG)
+  fun provideConnectivityInterceptor(
+    networkMonitorInterface: NetworkMonitorInterface,
+  ): Interceptor {
+    return ConnectivityInterceptor(networkMonitorInterface = networkMonitorInterface)
   }
 
   // authentication interceptor
