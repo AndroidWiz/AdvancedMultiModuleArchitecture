@@ -2,6 +2,8 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
-    <ID>ImportOrdering:LoginRemoteInterfaceImpl.kt$import com.demo.data.mapper.toDomain import com.demo.domain.result.Outcome import com.demo.data.source.NetworkDataSource import com.demo.login.data.mapper.LoginMapper import com.demo.login.data.requests.LoginRequestBody import com.demo.login.data.service.LoginService import com.demo.login.domain.models.User</ID>
+    <ID>NoMultipleSpaces:LoginRemoteInterfaceImpl.kt$LoginRemoteInterfaceImpl$ </ID>
+    <ID>SpacingAroundColon:LoginUseCase.kt$LoginUseCase$:</ID>
+    <ID>SpacingAroundParens:LoginRemoteInterfaceImpl.kt$LoginRemoteInterfaceImpl$(</ID>
   </CurrentIssues>
 </SmellBaseline>
