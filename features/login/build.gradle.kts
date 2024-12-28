@@ -1,3 +1,4 @@
+import dependencis.DependencyVersions
 import dependencis.androidTestImpl
 import dependencis.androidX
 import dependencis.dataModule
@@ -11,12 +12,21 @@ import plugs.SharedLibraryGradlePlugin
 
 plugins {
   id(plugs.BuildPlugins.ANDROID_LIBRARY)
+  id(plugs.BuildPlugins.HILT) version dependencis.DependencyVersions.HILT
 }
 
 apply<SharedLibraryGradlePlugin>()
 
 android {
   namespace = "com.demo.login"
+
+  composeOptions {
+    kotlinCompilerExtensionVersion = DependencyVersions.KOTLIN_COMPILER
+  }
+
+  buildFeatures {
+    compose = true
+  }
 }
 
 dependencies {
