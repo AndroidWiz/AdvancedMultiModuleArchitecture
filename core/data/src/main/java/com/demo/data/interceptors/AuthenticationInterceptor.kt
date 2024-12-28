@@ -32,7 +32,7 @@ class AuthenticationInterceptor @Inject constructor(
     }
 
     val authenticatedRequest = request.newBuilder()
-      .header(AUTHORIZATION_HEADER, "Bearer $accessToken")
+      .header(AUTHORIZATION_HEADER, "$BEARER $accessToken")
       .build()
 
     val response = chain.proceed(authenticatedRequest)
