@@ -1,6 +1,6 @@
-package com.demo.data.result
+package com.demo.domain.usecase
 
-import com.demo.domain.model.ErrorMessage
+import com.demo.domain.result.Outcome
 
 interface UseCase<R> {
 

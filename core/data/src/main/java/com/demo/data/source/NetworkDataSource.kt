@@ -6,7 +6,7 @@ import com.demo.data.error.getErrorResponse
 import com.demo.data.interceptors.NoConnectivityException
 import com.demo.data.mapper.toDomain
 import com.demo.data.response.ErrorResponse
-import com.demo.data.result.Outcome
+import com.demo.domain.result.Outcome
 import com.google.gson.Gson
 import kotlinx.coroutines.isActive
 import okhttp3.Headers

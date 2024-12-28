@@ -1,8 +1,8 @@
 package com.demo.login.data.source
 
 import com.demo.data.mapper.toDomain
-import com.demo.data.result.Outcome
 import com.demo.data.source.NetworkDataSource
+import com.demo.domain.result.Outcome
 import com.demo.login.data.mapper.LoginMapper
 import com.demo.login.data.requests.LoginRequestBody
 import com.demo.login.data.service.LoginService

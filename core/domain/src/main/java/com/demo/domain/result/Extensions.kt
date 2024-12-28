@@ -1,4 +1,4 @@
-package com.demo.data.result
+package com.demo.domain.result
 
 import kotlinx.coroutines.isActive
 import kotlin.coroutines.coroutineContext

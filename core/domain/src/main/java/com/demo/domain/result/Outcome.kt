@@ -1,6 +1,6 @@
-package com.demo.data.result
+package com.demo.domain.result
 
-import com.demo.domain.model.ErrorMessage
+import com.demo.domain.usecase.UseCase
 
 sealed class Outcome<T> {
   abstract fun isSuccess(): Boolean

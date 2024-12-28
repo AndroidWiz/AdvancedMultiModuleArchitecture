@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <SmellBaseline>
   <ManuallySuppressedIssues/>
-  <CurrentIssues/>
+  <CurrentIssues>
+    <ID>ImportOrdering:LoginRemoteInterfaceImpl.kt$import com.demo.data.mapper.toDomain import com.demo.domain.result.Outcome import com.demo.data.source.NetworkDataSource import com.demo.login.data.mapper.LoginMapper import com.demo.login.data.requests.LoginRequestBody import com.demo.login.data.service.LoginService import com.demo.login.domain.models.User</ID>
+  </CurrentIssues>
 </SmellBaseline>
