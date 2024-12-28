@@ -5,17 +5,22 @@ import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.chuckerteam.chucker.api.RetentionManager
 import com.demo.data.BuildConfig
+import com.demo.data.constants.AUTHENTICATION_INTERCEPTOR_TAG
 import com.demo.data.constants.CHUCKER_INTERCEPTOR_TAG
+import com.demo.data.constants.DISPATCHER_IO_TAG
 import com.demo.data.constants.HEADER_INTERCEPTOR_TAG
 import com.demo.data.constants.LOGGING_INTERCEPTOR_TAG
 import com.demo.data.interceptors.AUTHORIZATION_HEADER
+import com.demo.data.interceptors.AuthenticationInterceptor
 import com.demo.data.interceptors.CLIENT_ID_HEADER
 import com.demo.data.interceptors.HeaderInterceptor
+import com.demo.protodatastore.manager.session.SessionDataStoreInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineDispatcher
 import okhttp3.Interceptor
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.Locale
@@ -41,6 +46,20 @@ class InterceptorModule {
     )
   }
 
+  // authentication interceptor
+  @Provides
+  @Singleton
+  @Named(AUTHENTICATION_INTERCEPTOR_TAG)
+  fun provideAuthenticationInterceptor(
+    sessionDataStoreInterface: SessionDataStoreInterface,
+    @Named(DISPATCHER_IO_TAG) coroutineDispatcher: CoroutineDispatcher,
+  ): Interceptor {
+    return AuthenticationInterceptor(
+      sessionDataStoreInterface = sessionDataStoreInterface,
+      coroutineDispatcher = coroutineDispatcher,
+    )
+  }
+
   // chucker interceptor
   @Provides
   @Singleton
@@ -53,8 +72,8 @@ class InterceptorModule {
           // Toggles visibility of the notification
           showNotification = true,
           // Allows to customize the retention period of collected data
-          retentionPeriod = RetentionManager.Period.ONE_HOUR
-        )
+          retentionPeriod = RetentionManager.Period.ONE_HOUR,
+        ),
       )
       // The max body content length in bytes, after this responses will be truncated.
       .maxContentLength(250_000L)

@@ -3,6 +3,7 @@
   <ManuallySuppressedIssues/>
   <CurrentIssues>
     <ID>FunctionMaxLength:CoroutinesModule.kt$CoroutinesModule$@Provides @Singleton @Named(DISPATCHER_DEFAULT_TAG) fun provideDefaultCoroutineDispatcher(): CoroutineDispatcher</ID>
+    <ID>FunctionMaxLength:InterceptorModule.kt$InterceptorModule$@Provides @Singleton @Named(AUTHENTICATION_INTERCEPTOR_TAG) fun provideAuthenticationInterceptor( sessionDataStoreInterface: SessionDataStoreInterface, @Named(DISPATCHER_IO_TAG) coroutineDispatcher: CoroutineDispatcher, ): Interceptor</ID>
     <ID>FunctionMaxLength:InterceptorModule.kt$InterceptorModule$@Provides @Singleton @Named(LOGGING_INTERCEPTOR_TAG) fun provideOkHttpLoggingInterceptor(): Interceptor</ID>
   </CurrentIssues>
 </SmellBaseline>

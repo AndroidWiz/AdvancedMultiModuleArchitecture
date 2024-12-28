@@ -15,61 +15,61 @@ import okhttp3.Response
 import javax.inject.Inject
 
 class AuthenticationInterceptor @Inject constructor(
-    private val sessionDataStoreInterface: SessionDataStoreInterface,
-    private val sessionService: SessionService,
-    private val coroutineDispatcher: CoroutineDispatcher,
+  private val sessionDataStoreInterface: SessionDataStoreInterface,
+  private val coroutineDispatcher: CoroutineDispatcher,
 ) : Interceptor {
 
-    private val mutex: Mutex = Mutex()
+  @Inject
+  lateinit var sessionService: SessionService
 
-    override fun intercept(chain: Interceptor.Chain): Response {
-        val request = chain.request()
+  private val mutex: Mutex = Mutex()
 
-        val accessToken = runBlocking(coroutineDispatcher) {
-            sessionDataStoreInterface.getAccessToken()
-        }
+  override fun intercept(chain: Interceptor.Chain): Response {
+    val request = chain.request()
 
-        val authenticatedRequest = request.newBuilder()
-            .header(AUTHORIZATION_HEADER, "Bearer $accessToken")
-            .build()
-
-        val response = chain.proceed(authenticatedRequest)
-
-        // access token is valid, resume request
-        if (response.code != UNAUTHORIZED) return response
-
-        // token is unauthorized, refresh access and refresh tokens
-        val tokenResponse: TokenResponse? = runBlocking {
-            mutex.withLock {
-                val tokenResponse = getUpdatedToken().await()
-                tokenResponse.body().also {
-                    sessionDataStoreInterface.setAccessToken(accessToken = it?.accessToken ?: "")
-                    sessionDataStoreInterface.setRefreshToken(refreshToken = it?.refreshToken ?: "")
-                }
-            }
-        }
-
-        return if (tokenResponse?.accessToken != null) {
-            response.close()
-
-            // retry original request with new token
-            val retryAuthenticatedRequest = request.newBuilder()
-                .header(AUTHORIZATION_HEADER, "Bearer ${tokenResponse.accessToken}")
-                .build()
-
-            val retryResponse = chain.proceed(retryAuthenticatedRequest)
-            return retryResponse
-        } else {
-            response
-        }
-
+    val accessToken = runBlocking(coroutineDispatcher) {
+      sessionDataStoreInterface.getAccessToken()
     }
 
+    val authenticatedRequest = request.newBuilder()
+      .header(AUTHORIZATION_HEADER, "Bearer $accessToken")
+      .build()
 
-    private suspend fun getUpdatedToken(): Deferred<retrofit2.Response<TokenResponse>> {
-        val refreshToken = sessionDataStoreInterface.getRefreshToken()
-        return withContext(coroutineDispatcher) {
-            sessionService.getTokens(refreshToken = refreshToken)
+    val response = chain.proceed(authenticatedRequest)
+
+    // access token is valid, resume request
+    if (response.code != UNAUTHORIZED) return response
+
+    // token is unauthorized, refresh access and refresh tokens
+    val tokenResponse: TokenResponse? = runBlocking {
+      mutex.withLock {
+        val tokenResponse = getUpdatedToken().await()
+        tokenResponse.body().also {
+          sessionDataStoreInterface.setAccessToken(accessToken = it?.accessToken ?: "")
+          sessionDataStoreInterface.setRefreshToken(refreshToken = it?.refreshToken ?: "")
         }
+      }
     }
+
+    return if (tokenResponse?.accessToken != null) {
+      response.close()
+
+      // retry original request with new token
+      val retryAuthenticatedRequest = request.newBuilder()
+        .header(AUTHORIZATION_HEADER, "Bearer ${tokenResponse.accessToken}")
+        .build()
+
+      val retryResponse = chain.proceed(retryAuthenticatedRequest)
+      return retryResponse
+    } else {
+      response
+    }
+  }
+
+  private suspend fun getUpdatedToken(): Deferred<retrofit2.Response<TokenResponse>> {
+    val refreshToken = sessionDataStoreInterface.getRefreshToken()
+    return withContext(coroutineDispatcher) {
+      sessionService.getTokens(refreshToken = refreshToken)
+    }
+  }
 }
