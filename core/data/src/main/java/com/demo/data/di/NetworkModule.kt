@@ -5,10 +5,14 @@ import com.demo.data.BuildConfig
 import com.demo.data.OkHttpClientProvider
 import com.demo.data.connectivity.NetworkMonitorInterface
 import com.demo.data.connectivity.NetworkMonitorInterfaceImpl
+import com.demo.data.constants.AUTHENTICATION_INTERCEPTOR_TAG
+import com.demo.data.constants.CHUCKER_INTERCEPTOR_TAG
+import com.demo.data.constants.CONNECTIVITY_INTERCEPTOR_TAG
 import com.demo.data.constants.HEADER_INTERCEPTOR_TAG
 import com.demo.data.constants.LOGGING_INTERCEPTOR_TAG
 import com.demo.data.factory.ServiceFactory
 import com.demo.data.okhttp.OkHttpClientProviderInterface
+import com.demo.data.service.SessionService
 import com.google.gson.Gson
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
@@ -51,11 +55,17 @@ class NetworkModule {
   fun provideOkHttpCallFactory(
     @Named(LOGGING_INTERCEPTOR_TAG) okHttpLoggingInterceptor: Interceptor,
     @Named(HEADER_INTERCEPTOR_TAG) headerInterceptor: Interceptor,
+    @Named(CHUCKER_INTERCEPTOR_TAG) chuckerInterceptor: Interceptor,
+    @Named(AUTHENTICATION_INTERCEPTOR_TAG) authenticationInterceptor: Interceptor,
+    @Named(CONNECTIVITY_INTERCEPTOR_TAG) connectivityInterceptor: Interceptor,
     okHttpClientProvider: OkHttpClientProviderInterface,
   ): OkHttpClient {
     return okHttpClientProvider.getOkHttpClient(BuildConfig.PIN_CERTIFICATE)
       .addInterceptor(okHttpLoggingInterceptor)
       .addInterceptor(headerInterceptor)
+      .addInterceptor(headerInterceptor)
+      .addInterceptor(connectivityInterceptor)
+      .addInterceptor(authenticationInterceptor)
       .retryOnConnectionFailure(true)
       .followRedirects(false)
       .followSslRedirects(false)
@@ -82,5 +92,11 @@ class NetworkModule {
   @Singleton
   fun provideServiceFactory(retrofit: Retrofit): ServiceFactory {
     return ServiceFactory(retrofit)
+  }
+
+  @Provides
+  @Singleton
+  fun provideSessionService(serviceFactory: ServiceFactory): SessionService {
+    return serviceFactory.create(SessionService::class.java)
   }
 }

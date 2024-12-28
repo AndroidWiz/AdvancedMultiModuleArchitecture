@@ -48,6 +48,11 @@ fun DependencyHandler.protoDataStore() {
     implementation(Dependencies.PROTO_BUFF_KOTLIN_LITE)
 }
 
+fun DependencyHandler.chucker() {
+    debugImplementation(Dependencies.CHUCKER_DEBUG)
+    releaseImplementation(Dependencies.CHUCKER_RELEASE)
+}
+
 fun DependencyHandler.retrofit() {
     implementation(Dependencies.RETROFIT)
     implementation(Dependencies.RETROFIT_CONVERTER_GSON)

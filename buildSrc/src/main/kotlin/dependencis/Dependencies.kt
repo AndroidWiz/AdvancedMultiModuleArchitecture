@@ -37,4 +37,7 @@ object Dependencies {
     const val PROTO_BUFF_JAVA_LITE = "com.google.protobuf:protobuf-javalite:${DependencyVersions.PROTO_BUF_JAVA_VERSION}"
     const val PROTO_BUFF_KOTLIN_LITE = "com.google.protobuf:protobuf-kotlin-lite:${DependencyVersions.PROTO_BUF_KOTLIN_VERSION}"
     const val PROTO_BUFF_ARTIFACT = "com.google.protobuf:protoc:${DependencyVersions.PROTO_BUF_KOTLIN_VERSION}"
+
+    const val CHUCKER_DEBUG = "com.github.chuckerteam.chucker:library:${DependencyVersions.CHUCKER_VERSION}"
+    const val CHUCKER_RELEASE = "com.github.chuckerteam.chucker:library-no-op:${DependencyVersions.CHUCKER_VERSION}"
 }

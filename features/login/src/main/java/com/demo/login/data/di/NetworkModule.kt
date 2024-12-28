@@ -1,6 +1,5 @@
 package com.demo.login.data.di
 
-import com.demo.data.connectivity.NetworkMonitorInterface
 import com.demo.data.constants.DISPATCHER_DEFAULT_TAG
 import com.demo.data.constants.USER_ID_TAG
 import com.demo.data.factory.ServiceFactory
@@ -34,13 +33,11 @@ class NetworkModule {
   fun provideNetworkDataSource(
     loginService: LoginService,
     gson: Gson,
-    networkMonitorInterface: NetworkMonitorInterface,
     @Named(USER_ID_TAG) userIdProvider: () -> String,
   ): NetworkDataSource<LoginService> {
     return NetworkDataSource(
       service = loginService,
       gson = gson,
-      networkMonitorInterface = networkMonitorInterface,
       userIdProvider = userIdProvider,
     )
   }
