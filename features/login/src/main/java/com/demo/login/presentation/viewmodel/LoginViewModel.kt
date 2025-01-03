@@ -1,3 +1,10 @@
 package com.demo.login.presentation.viewmodel
 
-class LoginViewModel
+import androidx.lifecycle.ViewModel
+
+class LoginViewModel : ViewModel() {
+
+    fun login(userName: String, password: String) {
+
+    }
+}

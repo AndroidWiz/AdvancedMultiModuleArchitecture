@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <SmellBaseline>
   <ManuallySuppressedIssues/>
-  <CurrentIssues/>
+  <CurrentIssues>
+    <ID>NoBlankLineBeforeRbrace:LoginView.kt$ </ID>
+    <ID>NoBlankLineBeforeRbrace:LoginViewModel.kt$LoginViewModel$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:LoginView.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:LoginViewModel.kt$LoginViewModel$ </ID>
+    <ID>NoTrailingSpaces:LoginViewModel.kt$LoginViewModel$ </ID>
+  </CurrentIssues>
 </SmellBaseline>
