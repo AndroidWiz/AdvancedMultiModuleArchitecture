@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 
 class LoginViewModel : ViewModel() {
 
-    fun login(userName: String, password: String) {
-
-    }
+  fun login(userName: String, password: String) {
+  }
 }

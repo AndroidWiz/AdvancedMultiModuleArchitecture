@@ -1,1 +1,16 @@
-<resources />
+<resources>
+    <string name="no_error" />
+    <string name="username_error">Username must be alpha numeric</string>
+    <string
+        name="password_error"
+    >Password must be alpha numeric and contain at least 1 lowercase letter, 1 uppercase letter, and 1 special character</string>
+    <string
+        name="username_length_error"
+    >Username should be more than 5 characters</string>
+    <string
+        name="password_length_error"
+    >Password should be more than 8 characters and less than 12 characters</string>
+
+    <!--    <string name="incorrect_username">Incorrect username</string>-->
+    <!--    <string name="incorrect_password">Incorrect password</string>-->
+</resources>
