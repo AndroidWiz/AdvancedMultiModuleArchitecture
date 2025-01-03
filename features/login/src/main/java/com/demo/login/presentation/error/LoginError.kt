@@ -1,4 +1,4 @@
-package com.demo.login.presentation.view
+package com.demo.login.presentation.error
 
 import com.demo.login.R
 
