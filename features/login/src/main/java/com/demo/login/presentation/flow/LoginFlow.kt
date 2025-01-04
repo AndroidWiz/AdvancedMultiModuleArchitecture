@@ -16,14 +16,13 @@ sealed class LoginOutput {
   data class ShowError(val errorMessage: ErrorMessage) : LoginOutput()
 }
 
-
 data class LoginViewState(
   val userName: String = "",
   val password: String = "",
   val isLoginButtonEnabled: Boolean = false,
   val userNameError: LoginError = LoginError.NoEntry,
   val passwordError: LoginError = LoginError.NoEntry,
-){
+) {
   fun showPasswordError() = passwordError != LoginError.NoError && passwordError != LoginError.NoEntry
   fun showUsernameError() = userNameError != LoginError.NoError && userNameError != LoginError.NoEntry
 }
