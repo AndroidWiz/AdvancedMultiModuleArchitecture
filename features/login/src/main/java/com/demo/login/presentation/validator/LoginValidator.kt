@@ -44,4 +44,8 @@ object LoginValidator {
 
     return containsLowercase && containsUppercase && containsSpecialCharacters && containsDigits
   }
+
+  fun canLogin(usernameError: LoginError, passwordError: LoginError): Boolean {
+    return usernameError == LoginError.NoError && passwordError == LoginError.NoError
+  }
 }

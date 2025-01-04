@@ -1,9 +1,59 @@
 package com.demo.login.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.demo.login.presentation.error.LoginError
+import com.demo.login.presentation.flow.LoginInput
+import com.demo.login.presentation.flow.LoginOutput
+import com.demo.login.presentation.flow.LoginViewState
+import com.demo.login.presentation.validator.LoginValidator
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
 
-  fun login(userName: String, password: String) {
+  private var loginViewState = LoginViewState()
+
+  // output of viewmodel
+  private val _viewOutput: Channel<LoginOutput> = Channel()
+  val viewOutput = _viewOutput.receiveAsFlow()
+
+  fun setInput(input: LoginInput) {
+    when (input) {
+      is LoginInput.LoginButtonClicked -> login()
+      is LoginInput.PasswordUpdated -> updateState { copy(password = input.password) }
+      is LoginInput.RegisterButtonClicked -> sendOutput { LoginOutput.NavigateToRegister }
+      is LoginInput.UsernameUpdated -> updateState { copy(userName = input.userName) }
+    }
+  }
+
+  private fun updateState(updateState: LoginViewState.() -> LoginViewState) {
+    loginViewState = loginViewState.updateState()
+    validateInputs()
+  }
+
+  private fun validateInputs() {
+    val usernameError: LoginError =
+      LoginValidator.usernameError(userName = loginViewState.userName)
+    val passwordError: LoginError =
+      LoginValidator.passwordError(password = loginViewState.password)
+    val isLoginButtonEnabled: Boolean =
+      LoginValidator.canLogin(usernameError = usernameError, passwordError = passwordError)
+
+    loginViewState = loginViewState.copy(
+      userNameError = usernameError,
+      passwordError = passwordError,
+      isLoginButtonEnabled = isLoginButtonEnabled,
+    )
+  }
+
+  fun login() {
+  }
+
+  private fun sendOutput(action: () -> LoginOutput) {
+    viewModelScope.launch {
+      _viewOutput.send(action())
+    }
   }
 }

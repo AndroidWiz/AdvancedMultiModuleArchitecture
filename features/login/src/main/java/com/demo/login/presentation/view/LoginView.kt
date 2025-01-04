@@ -53,7 +53,7 @@ fun LoginScreen(modifier: Modifier = Modifier, loginViewModel: LoginViewModel) {
       // login button
       Button(
         modifier = modifier.fillMaxWidth(),
-        onClick = { loginViewModel.login(userName = userName, password = password) },
+        onClick = { loginViewModel.login() },
       ) {
         Text(text = "Login")
       }
