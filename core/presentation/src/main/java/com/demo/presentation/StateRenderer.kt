@@ -1,6 +1,7 @@
 package com.demo.presentation
 
 import androidx.annotation.StringRes
+import androidx.compose.runtime.Composable
 import com.demo.domain.model.ErrorMessage
 
 sealed class StateRenderer<out S, O> { // S for view state and O for output
@@ -41,4 +42,39 @@ sealed class StateRenderer<out S, O> { // S for view state and O for output
 
   // success state
   data class Success<S, O>(val output: O) : StateRenderer<S, O>()
+
+  // ScreenContent
+  @Composable
+  fun onUiState(action: @Composable (S) -> Unit): StateRenderer<S, O> {
+    if (this is ScreenContent) action(viewState)
+    return this
+  }
+
+  // Loading
+  @Composable
+  fun onLoadingState(action: @Composable (S) -> Unit): StateRenderer<S, O> {
+    if (this is LoadingPopup) action(viewState) else if (this is LoadingFullScreen) action(viewState)
+    return this
+  }
+
+  // Success
+  @Composable
+  fun onSuccessState(action: (O) -> Unit): StateRenderer<S, O> {
+    if (this is Success) action(output)
+    return this
+  }
+
+  // Error
+  @Composable
+  fun onErrorState(action: @Composable (S) -> Unit): StateRenderer<S, O> {
+    if (this is ErrorPopup) action(viewState) else if (this is ErrorFullScreen)action(viewState)
+    return this
+  }
+
+  // Empty
+  @Composable
+  fun onEmptyState(action: () -> Unit): StateRenderer<S, O> {
+    if (this is Empty) action()
+    return this
+  }
 }
