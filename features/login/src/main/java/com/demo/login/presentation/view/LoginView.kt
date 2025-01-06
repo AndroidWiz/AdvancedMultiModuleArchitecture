@@ -14,6 +14,10 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -30,20 +34,21 @@ import com.demo.login.presentation.viewmodel.LoginViewModel
 fun LoginScreen(
   modifier: Modifier = Modifier,
   loginViewModel: LoginViewModel,
-  loginViewState: LoginViewState = LoginViewState(),
+  loginViewState: LoginViewState,
 ) {
+  var userNameValue by remember { mutableStateOf("") }
+  var passwordValue by remember { mutableStateOf("") }
 
   // react to view output events
   LaunchedEffect(loginViewModel) {
-    loginViewModel.viewOutput.collect{output ->
-      when(output){
+    loginViewModel.viewOutput.collect { output ->
+      when (output) {
         is LoginOutput.NavigateToHome -> TODO()
         is LoginOutput.NavigateToRegister -> TODO()
         is LoginOutput.ShowError -> TODO()
       }
     }
   }
-
 
   Surface(modifier = modifier.fillMaxSize()) {
     Column(
@@ -55,11 +60,13 @@ fun LoginScreen(
       CustomTextField(
         modifier = modifier,
         label = stringResource(id = R.string.username_label),
-        value = loginViewState.userName,
+//        value = loginViewState.userName,
+        value = userNameValue,
         errorMessage = stringResource(id = loginViewState.userNameError.getErrorMessage()),
         showError = loginViewState.showUsernameError(),
       ) { username ->
-        loginViewModel.setInput(LoginInput.UsernameUpdated(userName = username))
+//        loginViewModel.setInput(LoginInput.UsernameUpdated(userName = username))
+        userNameValue = username
       }
       Spacer(modifier.height(16.dp))
 
@@ -67,11 +74,13 @@ fun LoginScreen(
       CustomTextField(
         modifier = modifier,
         label = stringResource(id = R.string.password_label),
-        value = loginViewState.password,
+//        value = loginViewState.password,
+        value = passwordValue,
         errorMessage = stringResource(id = loginViewState.passwordError.getErrorMessage()),
         showError = loginViewState.showPasswordError(),
       ) { password ->
-        loginViewModel.setInput(LoginInput.PasswordUpdated(password = password))
+//        loginViewModel.setInput(LoginInput.PasswordUpdated(password = password))
+        passwordValue = password
       }
       Spacer(modifier.height(16.dp))
 

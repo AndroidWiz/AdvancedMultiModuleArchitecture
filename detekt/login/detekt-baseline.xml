@@ -3,9 +3,7 @@
   <ManuallySuppressedIssues/>
   <CurrentIssues>
     <ID>FunctionMaxLength:LoginValidator.kt$LoginValidator$private fun String.isAlphaNumericSpecialCharacters(): Boolean</ID>
-    <ID>NoBlankLineBeforeRbrace:LoginView.kt$ </ID>
     <ID>NoEmptyFirstLineInMethodBlock:LoginView.kt$ </ID>
     <ID>SpacingAroundCurly:LoginView.kt${</ID>
-    <ID>SpacingAroundCurly:LoginView.kt$}</ID>
   </CurrentIssues>
 </SmellBaseline>

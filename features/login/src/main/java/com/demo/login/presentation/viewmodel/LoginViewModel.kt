@@ -17,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase) : ViewModel() {
 
-  private var loginViewState = LoginViewState()
+  var loginViewState = LoginViewState()
 
   // output of viewmodel
   private val _viewOutput: Channel<LoginOutput> = Channel()
@@ -57,10 +57,10 @@ class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase)
       loginUseCase.execute(
         input = LoginUseCase.Input(
           userName = loginViewState.userName,
-          password = loginViewState.password
+          password = loginViewState.password,
         ),
         success = {},
-        error = {}
+        error = {},
       )
     }
   }
