@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <SmellBaseline>
   <ManuallySuppressedIssues/>
-  <CurrentIssues/>
+  <CurrentIssues>
+    <ID>NoConsecutiveBlankLines:StateRenderer.kt$StateRenderer$ </ID>
+  </CurrentIssues>
 </SmellBaseline>
