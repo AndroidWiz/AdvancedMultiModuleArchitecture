@@ -13,6 +13,12 @@ object DependencyVersions {
     const val COMPOSE_UI = "1.6.0"
     const val MATERIAL3 = "1.2.1"
     const val RUN_TIME = "2.7.0"
+    const val ANDROIDX_APP_COMPAT = "1.7.0"
+    const val ANDROID_MATERIAL = "1.12.0"
+    const val ANDROIDX_ACTIVITY_KTX = "1.9.3"
+    const val COMPOSE_MATERIAL = "1.6.8"
+    const val COMPOSE_COMPILER = "1.5.15"
+    const val COMPOSE_RUNTIME = "2.8.4"
 
     const val RETROFIT = "2.11.0"
     const val RETROFIT_COROUTINES_ADAPTER_VERSION = "0.9.2"

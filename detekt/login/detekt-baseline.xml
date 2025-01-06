@@ -2,8 +2,8 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
-    <ID>NoMultipleSpaces:LoginRemoteInterfaceImpl.kt$LoginRemoteInterfaceImpl$ </ID>
-    <ID>SpacingAroundColon:LoginUseCase.kt$LoginUseCase$:</ID>
-    <ID>SpacingAroundParens:LoginRemoteInterfaceImpl.kt$LoginRemoteInterfaceImpl$(</ID>
+    <ID>FunctionMaxLength:LoginValidator.kt$LoginValidator$private fun String.isAlphaNumericSpecialCharacters(): Boolean</ID>
+    <ID>NoEmptyFirstLineInMethodBlock:LoginView.kt$ </ID>
+    <ID>SpacingAroundCurly:LoginView.kt${</ID>
   </CurrentIssues>
 </SmellBaseline>

@@ -13,6 +13,12 @@ fun DependencyHandler.androidX() {
     implementation(Dependencies.ANDROIDX_UI_TOOLING_PREVIEW)
     implementation(Dependencies.ANDROIDX_MATERIAL3)
     implementation(Dependencies.WORK_RUNTIME)
+    implementation(Dependencies.ANDROIDX_APP_COMPAT)
+    implementation(Dependencies.ANDROID_MATERIAL)
+    implementation(Dependencies.ANDROIDX_ACTIVITY_KTX)
+    implementation(Dependencies.COMPOSE_MATERIAL)
+    implementation(Dependencies.COMPOSE_COMPILER)
+    implementation(Dependencies.RUNTIME_COMPOSE)
 }
 
 fun DependencyHandler.testImpl() {
