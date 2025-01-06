@@ -10,6 +10,8 @@
     <string
         name="password_length_error"
     >Password should be more than 8 characters and less than 12 characters</string>
+    <string name="username_label">User Name</string>
+    <string name="password_label">Password</string>
 
     <!--    <string name="incorrect_username">Incorrect username</string>-->
     <!--    <string name="incorrect_password">Incorrect password</string>-->
