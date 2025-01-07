@@ -2,14 +2,18 @@ package com.demo.login.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.demo.login.domain.models.User
 import com.demo.login.domain.usecase.LoginUseCase
 import com.demo.login.presentation.error.LoginError
 import com.demo.login.presentation.flow.LoginInput
 import com.demo.login.presentation.flow.LoginOutput
 import com.demo.login.presentation.flow.LoginViewState
 import com.demo.login.presentation.validator.LoginValidator
+import com.demo.presentation.StateRenderer
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -18,6 +22,11 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase) : ViewModel() {
 
   var loginViewState = LoginViewState()
+
+  private val _stateRenderer = MutableStateFlow<StateRenderer<LoginViewState, User>>(
+    value = StateRenderer.ScreenContent(viewState = loginViewState),
+  )
+  val stateRenderer: StateFlow<StateRenderer<LoginViewState, User>> = _stateRenderer
 
   // output of viewmodel
   private val _viewOutput: Channel<LoginOutput> = Channel()
@@ -54,13 +63,24 @@ class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase)
 
   fun login() {
     viewModelScope.launch {
+      // loading state
+      _stateRenderer.value =
+        StateRenderer.LoadingPopup<LoginViewState, User>(viewState = loginViewState)
+
       loginUseCase.execute(
         input = LoginUseCase.Input(
           userName = loginViewState.userName,
           password = loginViewState.password,
         ),
-        success = {},
-        error = {},
+        success = {
+          _stateRenderer.value = StateRenderer.Success<LoginViewState, User>(output = it)
+        },
+        error = {
+          _stateRenderer.value = StateRenderer.ErrorPopup<LoginViewState, User>(
+            viewState = loginViewState,
+            errorMessage = it,
+          )
+        },
       )
     }
   }
