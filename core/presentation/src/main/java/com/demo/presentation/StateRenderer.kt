@@ -3,6 +3,11 @@ package com.demo.presentation
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
 import com.demo.domain.model.ErrorMessage
+import com.demo.presentation.views.RenderEmptyScreen
+import com.demo.presentation.views.RenderErrorFullScreen
+import com.demo.presentation.views.RenderErrorPopupScreen
+import com.demo.presentation.views.RenderLoadingFullScreen
+import com.demo.presentation.views.RenderLoadingPopupScreen
 
 sealed class StateRenderer<out S, O> { // S for view state and O for output
   // content state
@@ -76,5 +81,27 @@ sealed class StateRenderer<out S, O> { // S for view state and O for output
   fun onEmptyState(action: () -> Unit): StateRenderer<S, O> {
     if (this is Empty) action()
     return this
+  }
+
+  companion object {
+    @Composable
+    fun <S, O> of(
+      retryAction: () -> Unit = {},
+      stateRenderer: StateRenderer<S, O>,
+      block: @Composable StateRenderer<S, O>.() -> Unit,
+    ): StateRenderer<S, O> {
+      stateRenderer.block() // show this first before doing anything
+
+      when (stateRenderer) {
+        is Empty -> RenderEmptyScreen(emptyMessage = stateRenderer.emptyMessage)
+        is ErrorFullScreen -> RenderErrorFullScreen(errorMessage = stateRenderer.errorMessage, retryAction = retryAction)
+        is ErrorPopup -> RenderErrorPopupScreen(errorMessage = stateRenderer.errorMessage, retryAction = retryAction)
+        is LoadingFullScreen -> RenderLoadingFullScreen(loadingMessage = stateRenderer.loadingMessage)
+        is LoadingPopup -> RenderLoadingPopupScreen(loadingMessage = stateRenderer.loadingMessage)
+        else -> {}
+      }
+
+      return stateRenderer
+    }
   }
 }
