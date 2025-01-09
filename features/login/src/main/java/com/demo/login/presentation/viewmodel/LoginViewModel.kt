@@ -21,7 +21,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase) : ViewModel() {
 
-  var loginViewState = LoginViewState()
+  private var loginViewState = LoginViewState()
 
   private val _stateRenderer = MutableStateFlow<StateRenderer<LoginViewState, User>>(
     value = StateRenderer.ScreenContent(viewState = loginViewState),
@@ -59,13 +59,16 @@ class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase)
       passwordError = passwordError,
       isLoginButtonEnabled = isLoginButtonEnabled,
     )
+
+    _stateRenderer.value = StateRenderer.ScreenContent<LoginViewState, User>(viewState = loginViewState)
   }
 
   fun login() {
     viewModelScope.launch {
       // loading state
       _stateRenderer.value =
-        StateRenderer.LoadingPopup<LoginViewState, User>(viewState = loginViewState)
+//        StateRenderer.LoadingPopup<LoginViewState, User>(viewState = loginViewState)
+        StateRenderer.LoadingFullScreen<LoginViewState, User>(viewState = loginViewState)
 
       loginUseCase.execute(
         input = LoginUseCase.Input(
@@ -76,7 +79,8 @@ class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase)
           _stateRenderer.value = StateRenderer.Success<LoginViewState, User>(output = it)
         },
         error = {
-          _stateRenderer.value = StateRenderer.ErrorPopup<LoginViewState, User>(
+//          _stateRenderer.value = StateRenderer.ErrorPopup<LoginViewState, User>(
+          _stateRenderer.value = StateRenderer.ErrorFullScreen<LoginViewState, User>(
             viewState = loginViewState,
             errorMessage = it,
           )
