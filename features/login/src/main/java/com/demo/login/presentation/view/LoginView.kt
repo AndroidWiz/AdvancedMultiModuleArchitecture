@@ -51,6 +51,7 @@ fun LoginScreen(
   StateRenderer.of(stateRenderer = stateRenderer, retryAction = { loginViewModel.login() }) {
     onUiState { updatedState ->
       LoginScreenUiContent(
+        modifier = modifier,
         loginViewState = updatedState,
         loginViewModel = loginViewModel,
       )
@@ -76,7 +77,7 @@ fun LoginScreen(
 
 @Composable
 fun LoginScreenUiContent(
-  modifier: Modifier = Modifier,
+  modifier: Modifier,
   loginViewModel: LoginViewModel,
   loginViewState: LoginViewState,
 ) {

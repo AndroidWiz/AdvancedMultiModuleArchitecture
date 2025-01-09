@@ -110,3 +110,7 @@ fun DependencyHandler.datastoreModule() {
 fun DependencyHandler.protoDatastoreModule() {
     moduleImplementation(project(":core:protodatastore"))
 }
+
+fun DependencyHandler.navigatorModule() {
+    moduleImplementation(project(":core:navigator"))
+}
