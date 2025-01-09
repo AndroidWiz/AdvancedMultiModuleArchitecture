@@ -19,6 +19,10 @@ fun DependencyHandler.androidX() {
     implementation(Dependencies.COMPOSE_MATERIAL)
     implementation(Dependencies.COMPOSE_COMPILER)
     implementation(Dependencies.RUNTIME_COMPOSE)
+    implementation(Dependencies.NAVIGATION_FRAGMENT_KTX)
+    implementation(Dependencies.NAVIGATION_UI_KTX)
+    implementation(Dependencies.NAVIGATION_COMPOSE_KTX)
+    implementation(Dependencies.GOOGLE_GSON)
 }
 
 fun DependencyHandler.testImpl() {

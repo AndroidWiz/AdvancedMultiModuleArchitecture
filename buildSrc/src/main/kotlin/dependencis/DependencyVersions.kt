@@ -35,4 +35,7 @@ object DependencyVersions {
     const val PROTO_BUF_KOTLIN_VERSION = "4.28.3"
 
     const val CHUCKER_VERSION = "4.1.0"
+
+    const val NAVIGATION_VERSION = "2.7.7"
+    const val GSON_VERSION = "2.11.0"
 }
