@@ -1,4 +1,4 @@
-package com.demo.navigator
+package com.demo.navigator.core
 
 import androidx.navigation.NavOptionsBuilder
 import com.demo.navigator.event.NavigatorEvent
