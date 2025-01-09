@@ -5,6 +5,7 @@ import dependencis.dataModule
 import dependencis.debugImpl
 import dependencis.domainModule
 import dependencis.hilt
+import dependencis.presentationModule
 import dependencis.retrofit
 import dependencis.room
 import dependencis.testImpl
@@ -34,6 +35,7 @@ dependencies {
   hilt()
   room()
   retrofit()
+  presentationModule()
   dataModule()
   domainModule()
 
