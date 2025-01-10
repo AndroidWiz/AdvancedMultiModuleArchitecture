@@ -75,6 +75,7 @@ tasks.named("detekt") {
 //    dependsOn(":app:detektBaseline")
     dependsOn("detektBaseline")
     dependsOn(":features:login:detektBaseline")
+    dependsOn(":features:registration:detektBaseline")
     dependsOn(":core:data:detektBaseline")
     dependsOn(":core:domain:detektBaseline")
     dependsOn(":core:presentation:detektBaseline")

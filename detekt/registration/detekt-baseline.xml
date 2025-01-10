@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>NoConsecutiveBlankLines:RegistrationScreen.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:RegistrationScreen.kt$ </ID>
+    <ID>NoMultipleSpaces:RegistrationScreen.kt$ </ID>
+  </CurrentIssues>
+</SmellBaseline>
