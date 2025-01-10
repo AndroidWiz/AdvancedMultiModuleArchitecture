@@ -6,14 +6,14 @@ import kotlinx.coroutines.flow.Flow
 
 interface AppNavigator {
 
-    fun navigateUp(): Boolean
+  fun navigateUp(): Boolean
 
-    fun popBackStack()
+  fun popBackStack()
 
-    fun navigateTo(
-        route: String,
-        navOptionsBuilder: NavOptionsBuilder.() -> Unit = { launchSingleTop = true },
-    ): Boolean
+  fun navigateTo(
+    route: String,
+    navOptionsBuilder: NavOptionsBuilder.() -> Unit = { launchSingleTop = true },
+  ): Boolean
 
-    val destinations: Flow<NavigatorEvent>
+  val destinations: Flow<NavigatorEvent>
 }

@@ -9,17 +9,17 @@ const val USER_PARAMETER: String = "user"
 const val USER_AGE: String = "age"
 const val USER_FULL_NAME: String = "fullName"
 
-class HomeRoute : NavigationRoute {
+object HomeRoute : NavigationRoute {
 
-    fun createHome(user: String, fullName: String, age: Int): String =
-        "$HOME_SCREEN_ROUTE/$user/$fullName/$age"
+  fun createHome(user: String, fullName: String, age: Int): String =
+    "$HOME_SCREEN_ROUTE/$user/$fullName/$age"
 
-    override fun route(): String = Screens.HomeScreenRoute.route
+  override fun route(): String = Screens.HomeScreenRoute.route
 
-    override val arguments: List<NamedNavArgument>
-        get() = listOf(
-            navArgument(USER_PARAMETER) { type = NavType.StringType },
-            navArgument(USER_AGE) { type = NavType.IntType },
-            navArgument(USER_FULL_NAME) { type = NavType.StringType },
-        )
+  override val arguments: List<NamedNavArgument>
+    get() = listOf(
+      navArgument(USER_PARAMETER) { type = NavType.StringType },
+      navArgument(USER_AGE) { type = NavType.IntType },
+      navArgument(USER_FULL_NAME) { type = NavType.StringType },
+    )
 }

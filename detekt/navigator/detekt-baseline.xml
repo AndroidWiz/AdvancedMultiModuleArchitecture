@@ -1,12 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <SmellBaseline>
   <ManuallySuppressedIssues/>
-  <CurrentIssues>
-    <ID>EmptyClassBlock:AppNavigatorViewModel.kt$AppNavigatorViewModel${ }</ID>
-    <ID>NoBlankLineBeforeRbrace:AppNavigatorViewModel.kt$AppNavigatorViewModel$ </ID>
-    <ID>NoConsecutiveBlankLines:AppNavigatorImpl.kt$AppNavigatorImpl$ </ID>
-    <ID>NoEmptyClassBody:AppNavigatorViewModel.kt$AppNavigatorViewModel${ }</ID>
-    <ID>SpacingAroundColon:LoginRoute.kt$LoginRoute$:</ID>
-    <ID>SpacingAroundColon:RegistrationRoute.kt$RegistrationRoute$:</ID>
-  </CurrentIssues>
+  <CurrentIssues/>
 </SmellBaseline>

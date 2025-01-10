@@ -10,26 +10,25 @@ import javax.inject.Singleton
 @Singleton
 class AppNavigatorImpl : AppNavigator {
 
-    private val navigationEvents = Channel<NavigatorEvent>()
+  private val navigationEvents = Channel<NavigatorEvent>()
 
+  override fun navigateUp(): Boolean =
+    navigationEvents.trySend(NavigatorEvent.NavigateUp).isSuccess
 
-    override fun navigateUp(): Boolean =
-        navigationEvents.trySend(NavigatorEvent.NavigateUp).isSuccess
+  override fun popBackStack() {
+    navigationEvents.trySend(NavigatorEvent.PopBackStack)
+  }
 
-    override fun popBackStack() {
-        navigationEvents.trySend(NavigatorEvent.PopBackStack)
-    }
+  override fun navigateTo(
+    route: String,
+    navOptionsBuilder: NavOptionsBuilder.() -> Unit,
+  ): Boolean = navigationEvents.trySend(
+    NavigatorEvent.NavigateTo(
+      destination = route,
+      navOptionsBuilder = navOptionsBuilder,
+    ),
+  ).isSuccess
 
-    override fun navigateTo(
-        route: String,
-        navOptionsBuilder: NavOptionsBuilder.() -> Unit,
-    ): Boolean = navigationEvents.trySend(
-        NavigatorEvent.NavigateTo(
-            destination = route,
-            navOptionsBuilder = navOptionsBuilder
-        )
-    ).isSuccess
-
-    override val destinations: Flow<NavigatorEvent>
-        get() = navigationEvents.receiveAsFlow()
+  override val destinations: Flow<NavigatorEvent>
+    get() = navigationEvents.receiveAsFlow()
 }

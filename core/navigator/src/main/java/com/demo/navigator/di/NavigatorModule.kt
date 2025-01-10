@@ -10,5 +10,5 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 abstract class NavigatorModule {
 
-    abstract fun navigator(appNavigatorImpl: AppNavigatorImpl): AppNavigator
+  abstract fun navigator(appNavigatorImpl: AppNavigatorImpl): AppNavigator
 }

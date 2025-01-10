@@ -22,26 +22,38 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.demo.domain.model.toJson
 import com.demo.login.R
 import com.demo.login.presentation.flow.LoginInput
 import com.demo.login.presentation.flow.LoginOutput
 import com.demo.login.presentation.flow.LoginViewState
 import com.demo.login.presentation.viewmodel.LoginViewModel
+import com.demo.navigator.core.AppNavigator
+import com.demo.navigator.destinations.HomeRoute
+import com.demo.navigator.destinations.Screens
 import com.demo.presentation.StateRenderer
 
 @Composable
 fun LoginScreen(
   modifier: Modifier = Modifier,
-  loginViewModel: LoginViewModel,
+  appNavigator: AppNavigator,
 ) {
+  val loginViewModel: LoginViewModel = hiltViewModel()
   val stateRenderer by loginViewModel.stateRenderer.collectAsState()
 
   // react to view output events
   LaunchedEffect(loginViewModel) {
     loginViewModel.viewOutput.collect { output ->
       when (output) {
-        is LoginOutput.NavigateToHome -> TODO()
-        is LoginOutput.NavigateToRegister -> TODO()
+        is LoginOutput.NavigateToHome -> appNavigator.navigateTo(
+          route = HomeRoute.createHome(
+            user = output.user.toJson(),
+            fullName = output.user.fullName,
+            age = 21,
+          ),
+        )
+        is LoginOutput.NavigateToRegister -> appNavigator.navigateTo(route = Screens.RegistrationScreenRoute.route)
         is LoginOutput.ShowError -> TODO()
       }
     }
@@ -69,8 +81,14 @@ fun LoginScreen(
 //      )
     }
     onEmptyState { }
-    onSuccessState { updatedState ->
-      println(updatedState.fullName)
+    onSuccessState { user ->
+      appNavigator.navigateTo(
+        route = HomeRoute.createHome(
+          user = user.toJson(),
+          fullName = user.fullName,
+          age = 21,
+        ),
+      )
     }
   }
 }
