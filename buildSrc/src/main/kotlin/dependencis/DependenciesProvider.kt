@@ -94,6 +94,10 @@ fun DependencyHandler.homeModule() {
     moduleImplementation(project(":features:home"))
 }
 
+fun DependencyHandler.registrationModule() {
+    moduleImplementation(project(":features:registration"))
+}
+
 fun DependencyHandler.dataModule() {
     moduleImplementation(project(":core:data"))
 }

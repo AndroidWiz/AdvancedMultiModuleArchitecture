@@ -10,11 +10,14 @@ import dependencis.datastoreModule
 import dependencis.debugImpl
 import dependencis.domainModule
 import dependencis.hilt
+import dependencis.homeModule
 import dependencis.kotlinxSerialization
 import dependencis.loginModule
+import dependencis.navigatorModule
 import dependencis.okHttp
 import dependencis.presentationModule
 import dependencis.protoDatastoreModule
+import dependencis.registrationModule
 import dependencis.retrofit
 import dependencis.room
 import dependencis.testImpl
@@ -109,11 +112,14 @@ android {
 
 dependencies {
   loginModule()
+  homeModule()
+  registrationModule()
   dataModule()
   domainModule()
   presentationModule()
   datastoreModule()
   protoDatastoreModule()
+  navigatorModule()
   androidX()
   hilt()
   room()
