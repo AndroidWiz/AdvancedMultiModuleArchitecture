@@ -5,6 +5,7 @@ import dependencis.dataModule
 import dependencis.debugImpl
 import dependencis.domainModule
 import dependencis.hilt
+import dependencis.navigatorModule
 import dependencis.presentationModule
 import dependencis.retrofit
 import dependencis.room
@@ -38,6 +39,7 @@ dependencies {
   presentationModule()
   dataModule()
   domainModule()
+  navigatorModule()
 
   testImpl()
   androidTestImpl()

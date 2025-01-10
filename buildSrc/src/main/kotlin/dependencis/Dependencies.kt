@@ -18,6 +18,11 @@ object Dependencies {
     const val COMPOSE_COMPILER = "androidx.compose.compiler:compiler:${DependencyVersions.COMPOSE_COMPILER}"
     const val RUNTIME_COMPOSE = "androidx.lifecycle:lifecycle-runtime-compose:${DependencyVersions.COMPOSE_RUNTIME}"
 
+    const val NAVIGATION_FRAGMENT_KTX = "androidx.navigation:navigation-fragment-ktx:${DependencyVersions.NAVIGATION_VERSION}"
+    const val NAVIGATION_UI_KTX = "androidx.navigation:navigation-ui-ktx:${DependencyVersions.NAVIGATION_VERSION}"
+    const val NAVIGATION_COMPOSE_KTX = "androidx.navigation:navigation-compose:${DependencyVersions.NAVIGATION_VERSION}"
+    const val GOOGLE_GSON = "com.google.code.gson:gson:${DependencyVersions.GSON_VERSION}"
+
     const val HILT_ANDROID = "com.google.dagger:hilt-android:${DependencyVersions.HILT}"
     const val HILT_COMPILER = "com.google.dagger:hilt-compiler:${DependencyVersions.HILT}"
     const val HILT_AGP = "com.google.dagger:hilt-android-gradle-plugin:${DependencyVersions.HILT}"

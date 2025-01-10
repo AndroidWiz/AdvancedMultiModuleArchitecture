@@ -2,7 +2,7 @@ package com.demo.login.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.demo.login.domain.models.User
+import com.demo.domain.model.User
 import com.demo.login.domain.usecase.LoginUseCase
 import com.demo.login.presentation.error.LoginError
 import com.demo.login.presentation.flow.LoginInput

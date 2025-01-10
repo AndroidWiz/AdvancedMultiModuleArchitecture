@@ -1,6 +1,7 @@
 package com.demo.login.presentation.flow
 
 import com.demo.domain.model.ErrorMessage
+import com.demo.domain.model.User
 import com.demo.login.presentation.error.LoginError
 
 sealed class LoginInput {
@@ -11,7 +12,7 @@ sealed class LoginInput {
 }
 
 sealed class LoginOutput {
-  data object NavigateToHome : LoginOutput()
+  data class NavigateToHome(val user: User) : LoginOutput()
   data object NavigateToRegister : LoginOutput()
   data class ShowError(val errorMessage: ErrorMessage) : LoginOutput()
 }

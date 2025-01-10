@@ -19,6 +19,10 @@ fun DependencyHandler.androidX() {
     implementation(Dependencies.COMPOSE_MATERIAL)
     implementation(Dependencies.COMPOSE_COMPILER)
     implementation(Dependencies.RUNTIME_COMPOSE)
+    implementation(Dependencies.NAVIGATION_FRAGMENT_KTX)
+    implementation(Dependencies.NAVIGATION_UI_KTX)
+    implementation(Dependencies.NAVIGATION_COMPOSE_KTX)
+    implementation(Dependencies.GOOGLE_GSON)
 }
 
 fun DependencyHandler.testImpl() {
@@ -45,6 +49,9 @@ fun DependencyHandler.room() {
 fun DependencyHandler.dataStore() {
     implementation(Dependencies.DATA_STORE)
     implementation(Dependencies.KOTLIN_COLLECTION)
+}
+
+fun DependencyHandler.kotlinxSerialization() {
     implementation(Dependencies.KOTLIN_SERIALIZATION)
 }
 
@@ -87,6 +94,10 @@ fun DependencyHandler.homeModule() {
     moduleImplementation(project(":features:home"))
 }
 
+fun DependencyHandler.registrationModule() {
+    moduleImplementation(project(":features:registration"))
+}
+
 fun DependencyHandler.dataModule() {
     moduleImplementation(project(":core:data"))
 }
@@ -105,4 +116,8 @@ fun DependencyHandler.datastoreModule() {
 
 fun DependencyHandler.protoDatastoreModule() {
     moduleImplementation(project(":core:protodatastore"))
+}
+
+fun DependencyHandler.navigatorModule() {
+    moduleImplementation(project(":core:navigator"))
 }

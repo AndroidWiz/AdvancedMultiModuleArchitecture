@@ -22,26 +22,40 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.demo.domain.model.toJson
 import com.demo.login.R
 import com.demo.login.presentation.flow.LoginInput
 import com.demo.login.presentation.flow.LoginOutput
 import com.demo.login.presentation.flow.LoginViewState
 import com.demo.login.presentation.viewmodel.LoginViewModel
+import com.demo.navigator.core.AppNavigator
+import com.demo.navigator.destinations.HomeRoute
+import com.demo.navigator.destinations.Screens
 import com.demo.presentation.StateRenderer
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
 @Composable
 fun LoginScreen(
   modifier: Modifier = Modifier,
-  loginViewModel: LoginViewModel,
+  appNavigator: AppNavigator,
 ) {
+  val loginViewModel: LoginViewModel = hiltViewModel()
   val stateRenderer by loginViewModel.stateRenderer.collectAsState()
 
   // react to view output events
   LaunchedEffect(loginViewModel) {
     loginViewModel.viewOutput.collect { output ->
       when (output) {
-        is LoginOutput.NavigateToHome -> TODO()
-        is LoginOutput.NavigateToRegister -> TODO()
+        is LoginOutput.NavigateToHome -> appNavigator.navigateTo(
+          route = HomeRoute.createHome(
+            user = output.user.toJson(),
+            fullName = output.user.fullName,
+            age = 21,
+          ),
+        )
+        is LoginOutput.NavigateToRegister -> appNavigator.navigateTo(route = Screens.RegistrationScreenRoute.route)
         is LoginOutput.ShowError -> TODO()
       }
     }
@@ -51,6 +65,7 @@ fun LoginScreen(
   StateRenderer.of(stateRenderer = stateRenderer, retryAction = { loginViewModel.login() }) {
     onUiState { updatedState ->
       LoginScreenUiContent(
+        modifier = modifier,
         loginViewState = updatedState,
         loginViewModel = loginViewModel,
       )
@@ -68,15 +83,22 @@ fun LoginScreen(
 //      )
     }
     onEmptyState { }
-    onSuccessState { updatedState ->
-      println(updatedState.fullName)
+    onSuccessState { user ->
+      val encodedUserJson = URLEncoder.encode(user.toJson(), StandardCharsets.UTF_8.toString())
+      appNavigator.navigateTo(
+        route = HomeRoute.createHome(
+          user = encodedUserJson,
+          fullName = user.fullName,
+          age = 21,
+        ),
+      )
     }
   }
 }
 
 @Composable
 fun LoginScreenUiContent(
-  modifier: Modifier = Modifier,
+  modifier: Modifier,
   loginViewModel: LoginViewModel,
   loginViewState: LoginViewState,
 ) {

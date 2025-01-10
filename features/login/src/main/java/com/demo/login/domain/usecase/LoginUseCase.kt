@@ -1,9 +1,9 @@
 package com.demo.login.domain.usecase
 
+import com.demo.domain.model.User
 import com.demo.domain.result.Outcome
 import com.demo.domain.usecase.AsyncUseCase
 import com.demo.login.data.source.LoginRemoteInterface
-import com.demo.login.domain.models.User
 import javax.inject.Inject
 
 class LoginUseCase @Inject constructor(private val loginRemote: LoginRemoteInterface) : AsyncUseCase<LoginUseCase.Input, User>() {
