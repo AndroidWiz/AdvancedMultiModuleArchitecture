@@ -2,11 +2,11 @@ package com.demo.login.data.source
 
 import com.demo.data.mapper.toDomain
 import com.demo.data.source.NetworkDataSource
+import com.demo.domain.model.User
 import com.demo.domain.result.Outcome
 import com.demo.login.data.mapper.LoginMapper
 import com.demo.login.data.requests.LoginRequestBody
 import com.demo.login.data.service.LoginService
-import com.demo.login.domain.models.User
 
 class LoginRemoteInterfaceImpl(
   private val networkDataSource: NetworkDataSource<LoginService>,

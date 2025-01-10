@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ImportOrdering:ExampleUnitTest.kt$import org.junit.Test import org.junit.Assert.assertEquals</ID>
+    <ID>NoConsecutiveBlankLines:HomeScreen.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:HomeScreen.kt$ </ID>
+  </CurrentIssues>
+</SmellBaseline>

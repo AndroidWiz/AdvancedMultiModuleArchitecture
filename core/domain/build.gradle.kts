@@ -1,5 +1,6 @@
 import dependencis.androidTestImpl
 import dependencis.debugImpl
+import dependencis.kotlinxSerialization
 import dependencis.testImpl
 import plugs.SharedLibraryGradlePlugin
 
@@ -14,6 +15,8 @@ android {
 }
 
 dependencies {
+  kotlinxSerialization()
+
   testImpl()
   androidTestImpl()
   debugImpl()

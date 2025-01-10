@@ -49,6 +49,9 @@ fun DependencyHandler.room() {
 fun DependencyHandler.dataStore() {
     implementation(Dependencies.DATA_STORE)
     implementation(Dependencies.KOTLIN_COLLECTION)
+}
+
+fun DependencyHandler.kotlinxSerialization() {
     implementation(Dependencies.KOTLIN_SERIALIZATION)
 }
 

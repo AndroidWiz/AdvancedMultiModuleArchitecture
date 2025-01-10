@@ -10,6 +10,7 @@ import dependencis.datastoreModule
 import dependencis.debugImpl
 import dependencis.domainModule
 import dependencis.hilt
+import dependencis.kotlinxSerialization
 import dependencis.loginModule
 import dependencis.okHttp
 import dependencis.presentationModule
@@ -119,6 +120,7 @@ dependencies {
   okHttp()
   retrofit()
   dataStore()
+  kotlinxSerialization()
 
   testImpl()
   androidTestImpl()

@@ -5,6 +5,7 @@ import dependencis.dataStore
 import dependencis.debugImpl
 import dependencis.domainModule
 import dependencis.hilt
+import dependencis.kotlinxSerialization
 import dependencis.okHttp
 import dependencis.protoDatastoreModule
 import dependencis.retrofit
@@ -28,6 +29,7 @@ dependencies {
   domainModule()
   chucker()
   dataStore()
+  kotlinxSerialization()
   protoDatastoreModule()
 
   testImpl()
