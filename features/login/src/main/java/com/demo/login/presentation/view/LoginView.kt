@@ -33,6 +33,8 @@ import com.demo.navigator.core.AppNavigator
 import com.demo.navigator.destinations.HomeRoute
 import com.demo.navigator.destinations.Screens
 import com.demo.presentation.StateRenderer
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
 @Composable
 fun LoginScreen(
@@ -82,9 +84,10 @@ fun LoginScreen(
     }
     onEmptyState { }
     onSuccessState { user ->
+      val encodedUserJson = URLEncoder.encode(user.toJson(), StandardCharsets.UTF_8.toString())
       appNavigator.navigateTo(
         route = HomeRoute.createHome(
-          user = user.toJson(),
+          user = encodedUserJson,
           fullName = user.fullName,
           age = 21,
         ),

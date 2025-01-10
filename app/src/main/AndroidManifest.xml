@@ -22,13 +22,14 @@
             android:name=".MainActivity"
             android:exported="false"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AdvancedMultiModuleArchitecture"/>
+            android:theme="@style/Theme.AdvancedMultiModuleArchitecture"
+        />
 
         <activity
             android:name=".RoutingActivity"
             android:exported="true"
             android:theme="@style/Theme.AdvancedMultiModuleArchitecture"
-            >
+        >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

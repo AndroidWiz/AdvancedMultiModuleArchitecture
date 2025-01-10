@@ -13,35 +13,35 @@ import dependencis.testImpl
 import plugs.SharedLibraryGradlePlugin
 
 plugins {
-    id(plugs.BuildPlugins.ANDROID_LIBRARY)
-    id(plugs.BuildPlugins.HILT) version dependencis.DependencyVersions.HILT
+  id(plugs.BuildPlugins.ANDROID_LIBRARY)
+  id(plugs.BuildPlugins.HILT) version dependencis.DependencyVersions.HILT
 }
 
 apply<SharedLibraryGradlePlugin>()
 
 android {
-    namespace = "com.demo.home"
+  namespace = "com.demo.home"
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = DependencyVersions.KOTLIN_COMPILER
-    }
+  composeOptions {
+    kotlinCompilerExtensionVersion = DependencyVersions.KOTLIN_COMPILER
+  }
 
-    buildFeatures {
-        compose = true
-    }
+  buildFeatures {
+    compose = true
+  }
 }
 
 dependencies {
-    androidX()
-    hilt()
-    room()
-    retrofit()
-    presentationModule()
-    dataModule()
-    domainModule()
-    navigatorModule()
+  androidX()
+  hilt()
+  room()
+  retrofit()
+  presentationModule()
+  dataModule()
+  domainModule()
+  navigatorModule()
 
-    testImpl()
-    androidTestImpl()
-    debugImpl()
+  testImpl()
+  androidTestImpl()
+  debugImpl()
 }
